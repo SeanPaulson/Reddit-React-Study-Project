@@ -2,7 +2,7 @@ import styled from "styled-components";
 import RedditLogo from "../RedditLogo";
 import HamburgerMenu from "../../HamburgerMenu";
 
-const Header = (toggleMenu) => {
+const Header = ({ toggleMenu }) => {
   const App_Header = styled.header`
     background-color: #1d2535;
     color: white;
@@ -29,7 +29,7 @@ const Header = (toggleMenu) => {
             <RedditLogo color="white"></RedditLogo>
           </li>
           <Menu__Btn>
-            <HamburgerMenu color="white" />
+            <HamburgerMenu toggleMenu={toggleMenu} color="white" />
           </Menu__Btn>
         </List_Container>
       </nav>
