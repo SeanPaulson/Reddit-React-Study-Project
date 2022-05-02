@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header";
 import Posts from "./components/Posts/Posts";
+import Category from "./components/Category/Category"
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import styled from "styled-components";
 import { useState } from "react";
@@ -27,7 +28,12 @@ const toggleMenu = () => {
         <Header 
         toggleMenu = {toggleMenu}
         />
+<<<<<<< HEAD
         <Posts></Posts>
+=======
+        <Category />
+        <Posts />
+>>>>>>> origin/main
       </Container>
     </div>
   );
