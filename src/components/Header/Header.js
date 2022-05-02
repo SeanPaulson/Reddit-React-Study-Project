@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import RedditLogo from "../RedditLogo";
-import HamburgerMenu from "../../HamburgerMenu";
+import HamburgerMenu from "../HamburgerMenu";
 
 const App_Header = styled.header`
     background-color: #1d2535;
@@ -15,7 +15,7 @@ const App_Header = styled.header`
     list-style-type: none;
   `;
 
-  const Menu__Btn = styled.ul`
+  const Menu_Btn = styled.li`
     align-self: center;
     flex-basis: 2rem;
     margin-right: 1rem;
@@ -30,9 +30,9 @@ const Header = ({ toggleMenu }) => {
           <li>
             <RedditLogo color="white"></RedditLogo>
           </li>
-          <Menu__Btn>
+          <Menu_Btn>
             <HamburgerMenu toggleMenu={toggleMenu} color="white" />
-          </Menu__Btn>
+          </Menu_Btn>
         </List_Container>
       </nav>
     </App_Header>

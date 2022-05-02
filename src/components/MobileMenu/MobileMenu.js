@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
-const Body = styled.body`
-background-color: black;
+const MobileMenu_Container = styled.div`
+${({ menuIsOpen }) => menuIsOpen ? 'display: block' : 'display: none'};
+position: absolute;
+color: white;
+background-color: #1d2535;
+min-height: 400px;
+min-width: 100%;
+z-index: 999;
 `
-
-const MobileMenu = (props) => {
-
-   
-
-    return ( <>
-    </> );
-}
  
-export default MobileMenu;
+export default MobileMenu_Container;
