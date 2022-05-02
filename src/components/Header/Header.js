@@ -1,30 +1,39 @@
 import styled from "styled-components";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import RedditLogo from '../RedditLogo';
+import RedditLogo from "../RedditLogo";
+import HamburgerMenu from "../../HamburgerMenu";
 
-const Container = styled.div`
-    
-    
-`;
+const Header = (toggleMenu) => {
+  const App_Header = styled.header`
+    background-color: #1d2535;
+    color: white;
+  `;
 
-const List = styled.ul`
+  const List_Container = styled.ul`
     display: flex;
-    justify-content: space-evenly;
-    list-style-type: none; 
-`;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  `;
 
-const Header = (props) => {
+  const Menu__Btn = styled.ul`
+    align-self: center;
+    flex-basis: 2rem;
+    margin-right: 1rem;
+  `;
   return (
-      <Container>
-        <nav>
-          <List>
-            <li><RedditLogo></RedditLogo></li>
-            <li><input></input></li>
-            <li>profile</li>
-            <li><KeyboardArrowDownIcon /></li>
-          </List>
-        </nav>
-      </Container>
+    <App_Header>
+      <nav>
+        <List_Container>
+          <li>
+            <RedditLogo color="white"></RedditLogo>
+          </li>
+          <Menu__Btn>
+            <HamburgerMenu color="white" />
+          </Menu__Btn>
+        </List_Container>
+      </nav>
+    </App_Header>
   );
 };
 
