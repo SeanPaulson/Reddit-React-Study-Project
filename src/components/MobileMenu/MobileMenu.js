@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
+const Body = styled.body`
+background-color: black;
+`
+
 const MobileMenu = (props) => {
 
-    const Body = styled.body`
-    background-color: black;
-    `
+   
 
     return ( <>
     </> );

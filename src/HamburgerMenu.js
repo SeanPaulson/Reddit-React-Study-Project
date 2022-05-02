@@ -5,7 +5,7 @@ const HamburgerMenu = ({ toggleMenu, color }) => {
   return (
     <svg
       onClick={toggleMenu}
-      class="svg-menu-icon "
+      className="svg-menu-icon "
       viewBox="0 0 20 16"
       xmlns="http://www.w3.org/2000/svg"
     >

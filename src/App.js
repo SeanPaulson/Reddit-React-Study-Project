@@ -13,12 +13,10 @@ function App() {
   `;
 
 
-const [menuIsopen, setMenuIsopen] = useState(true);
+const [menuIsopen, setMenuIsopen] = useState(false);
 
 const toggleMenu = () => {
-  if(!menuIsopen) {
-    setMenuIsopen(!menuIsopen)
-  }
+    setMenuIsopen(prev => setMenuIsopen(!prev))
   console.log(menuIsopen);
 }
 
@@ -30,7 +28,6 @@ const toggleMenu = () => {
         toggleMenu = {toggleMenu}
         />
         <Posts></Posts>
-
       </Container>
     </div>
   );
