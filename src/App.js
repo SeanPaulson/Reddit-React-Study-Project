@@ -4,7 +4,8 @@ import Category from "./components/Category/Category"
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import styled from "styled-components";
 import { useState } from "react";
-import { PropaneSharp } from "@mui/icons-material";
+import MobileMenuListItems from "./components/MobileMenu/MobileMenuListItems";
+// import { PropaneSharp } from "@mui/icons-material";
 
 // const [menu__btnIsOpen-m, menu__btnIsOpen-m] = useState();
 const Container = styled.div`
@@ -27,7 +28,7 @@ const toggleMenu = () => {
       <Container>
         <Header toggleMenu = {toggleMenu}/>
         <MobileMenu menuIsOpen={menuIsOpen} >
-          create menu list component
+          <MobileMenuListItems />
         </MobileMenu>
         <Category />
         <Posts />

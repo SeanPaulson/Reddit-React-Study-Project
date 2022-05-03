@@ -106,7 +106,7 @@ const Info = styled.div`
 const posts = [
     {
         Title: "r/random1",
-        post: "blalablalblablalba",
+        post: "blalablalblablalasfasfafsafafsafba asklfjaslfkjasfaskf as;fjlskafjkljs",
         img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
     },
     {
