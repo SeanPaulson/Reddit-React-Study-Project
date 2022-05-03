@@ -7,29 +7,28 @@ import { useState } from "react";
 import { PropaneSharp } from "@mui/icons-material";
 
 // const [menu__btnIsOpen-m, menu__btnIsOpen-m] = useState();
+const Container = styled.div`
+top: 0px;
+`;
 
 function App() {
-  const Container = styled.div`
-    top: 0px;
-  `;
 
-
-const [menuIsopen, setMenuIsopen] = useState(true);
+const [menuIsOpen, setMenuIsopen] = useState(false);
 
 const toggleMenu = () => {
-  if(!menuIsopen) {
-    setMenuIsopen(!menuIsopen)
-  }
-  console.log(menuIsopen);
+   setMenuIsopen(prev => setMenuIsopen(!prev))
+    
 }
+
 
 
   return (
     <div className="App">
       <Container>
-        <Header 
-        toggleMenu = {toggleMenu}
-        />
+        <Header toggleMenu = {toggleMenu}/>
+        <MobileMenu menuIsOpen={menuIsOpen} >
+          create menu list component
+        </MobileMenu>
         <Category />
         <Posts />
       </Container>
