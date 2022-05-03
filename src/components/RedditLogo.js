@@ -2,7 +2,7 @@ const redditLogo = ({ color }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="50"
-    width="100"
+    width="120"
     clipRule="evenodd"
     fillRule="evenodd"
     strokeLinejoin="round"

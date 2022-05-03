@@ -2,12 +2,12 @@ import styled from "styled-components";
 import RedditLogo from "../RedditLogo";
 import HamburgerMenu from "../HamburgerMenu";
 
-const App_Header = styled.header`
+const AppHeader = styled.header`
     background-color: #1d2535;
     color: white;
   `;
 
-  const List_Container = styled.ul`
+  const ListContainer = styled.ul`
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -15,7 +15,7 @@ const App_Header = styled.header`
     list-style-type: none;
   `;
 
-  const Menu_Btn = styled.li`
+  const MenuBtn = styled.li`
     align-self: center;
     flex-basis: 2rem;
     margin-right: 1rem;
@@ -24,18 +24,18 @@ const App_Header = styled.header`
 const Header = ({ toggleMenu }) => {
   
   return (
-    <App_Header>
+    <AppHeader>
       <nav>
-        <List_Container>
+        <ListContainer>
           <li>
             <RedditLogo color="white"></RedditLogo>
           </li>
-          <Menu_Btn>
+          <MenuBtn>
             <HamburgerMenu toggleMenu={toggleMenu} color="white" />
-          </Menu_Btn>
-        </List_Container>
+          </MenuBtn>
+        </ListContainer>
       </nav>
-    </App_Header>
+    </AppHeader>
   );
 };
 
