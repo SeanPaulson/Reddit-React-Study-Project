@@ -1,4 +1,4 @@
-import Header from "./components/Header/Header";
+import Header from "./components/MobileNavBar/MobileNavBar";
 import Posts from "./components/Posts/Posts";
 import Category from "./components/Category/Category"
 import MobileMenu from "./components/MobileMenu/MobileMenu";
