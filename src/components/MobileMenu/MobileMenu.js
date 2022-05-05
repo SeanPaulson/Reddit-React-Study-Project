@@ -7,7 +7,6 @@ color: white;
 background-color: #1d2535;
 min-height: 400px;
 min-width: 100%;
-z-index: 999;
-`
- 
+z-index: 500;
+ `
 export default MobileMenu_Container;
