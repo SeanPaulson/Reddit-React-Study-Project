@@ -3,10 +3,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Chip from '@mui/material/Chip';
 import CircleIcon from '@mui/icons-material/Circle';
-import UpVote from "../UpVote"
-import DownVote from "../DownVote"
-import Comments from "../Comments"
-import Share from "../Share"
+import UpVote from "../../images/UpVote"
+import DownVote from "../../images/DownVote"
+import Comments from "../../images/Comments"
+import Share from "../../images/Share"
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 
 const Container = styled.div`
     display: flex;
@@ -21,8 +24,8 @@ const PostWrap = styled.div`
     background-color: white;
     margin-top: 0.4em;
     flex-direction: column;
-    height: 18vh;
-    padding: 0em 1em;
+    maxheight: 30vh;
+    padding: 0em 2vh;
 `
 
 const Top = styled.div`
@@ -33,7 +36,9 @@ const Top = styled.div`
     flex: 1
 `
 
-const SubRedditTitle = styled.h5``
+const SubRedditTitle = styled.h5`
+    font-weight: 500;
+`
 
 const Time = styled.h5`
     color: grey;
@@ -55,18 +60,20 @@ const Right = styled.div`
 const Content = styled.div`
     display: flex;
     flex: 2;
+    gap: 1.5vh;
     align-items:center;
     justify-content: space-between;
 `
 
 const ContentTitle = styled.p`
     margin: 0px;
+    font-weight: 600;
     align-Self: flex-start;
 `
 
 const ContentImage = styled.img`
     width: 70px;
-    height: 40px;
+    height: 50px;
 
 `
 
@@ -103,58 +110,30 @@ const Info = styled.div`
 
 // const ShowMore = styled.div``
 
-const posts = [
-    {
-        Title: "r/random1",
-        post: "blalablalblablalasfasfafsafafsafba asklfjaslfkjasfaskf as;fjlskafjkljs",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random2",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random3",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random4",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random5",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random6",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random7",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    },
-    {
-        Title: "r/random8",
-        post: "blalablalblablalba",
-        img: "https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-    }
-]
-
 function Posts() {
+    const [posts, setPosts] = useState()
+
+    useEffect(()=> {
+        const getPosts = async() => {
+            try {
+                const res = await axios.get("https://www.reddit.com/hot/.json?limit=10")
+                console.log(res.data.data.children)
+                setPosts(res.data.data.children)   
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getPosts()
+    },[])
+
     return (
         <Container>
-            {posts.map  ((item,index) => (
+            {posts?.map((item,index) => (
                 <PostWrap key={index}>
                     <Top>
                         <Left>
-                        <AccountCircleIcon sx={{fontSize: "19px"}} />
-                        <SubRedditTitle>{item.Title}</SubRedditTitle>
+                        <AccountCircleIcon sx={{fontSize: "23px"}} />
+                        <SubRedditTitle>r/{item.data.subreddit}</SubRedditTitle>
                         <CircleIcon sx={{fontSize: "5px",opacity: 0.5}} />
                         <Time>5h</Time>
                         </Left>
@@ -164,25 +143,25 @@ function Posts() {
                         </Right>
                     </Top>
                     <Content>
-                        <ContentTitle>{item.post}</ContentTitle>
-                        <ContentImage src={item.img} />
+                        <ContentTitle>{item.data.title}</ContentTitle>
+                        {item.data.thumbnail === "self" ? <></> : <ContentImage src={item.data.thumbnail} />}
                     </Content>
                     <Footer>
                         <Left>
                             <Info>
                                 <UpVote color="grey" />
-                                <Count>9.3k</Count>
+                                <Count>{item.data.ups}</Count>
                                 <DownVote color="grey" />
                             </Info>
                             <Info>
                                 <Image src='https://www.redditstatic.com/gold/awards/icon/gold_64.png'/>
                                 <Image src='https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=64&height=64&auto=webp&s=b4406a2d88bf86fa3dc8a45aacf7e0c7bdccc4fb'/>
                                 <Image src='https://www.redditstatic.com/gold/awards/icon/silver_64.png'/>
-                                <Count>5</Count>
+                                <Count>{item.data["all_awardings"].length}</Count>
                             </Info>
                             <Info>
                                 <Comments color="grey" />
-                                <Count>545</Count>
+                                <Count>{item.data["num_comments"]}</Count>
                             </Info>
                         </Left>
                         <Right>

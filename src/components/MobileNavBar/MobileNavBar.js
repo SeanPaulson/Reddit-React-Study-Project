@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import RedditLogo from "../RedditLogo";
-import HamburgerMenu from "../HamburgerMenu";
+import RedditLogo from "../../images/RedditLogo";
+import HamburgerMenu from "../../images/HamburgerMenu";
 
 const AppHeader = styled.header`
     background-color: #1d2535;

@@ -1,9 +1,9 @@
 import Header from "./components/MobileNavBar/MobileNavBar";
 import Posts from "./components/Posts/Posts";
-import Category from "./components/Category/Category"
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import styled from "styled-components";
 import { useState } from "react";
+import Category from "./components/Category/Category"
 import MobileMenuListItems from "./components/MobileMenu/MobileMenuListItems";
 // import { PropaneSharp } from "@mui/icons-material";
 
@@ -14,12 +14,12 @@ top: 0px;
 
 function App() {
 
-const [menuIsOpen, setMenuIsopen] = useState(false);
+  const [menuIsOpen, setMenuIsopen] = useState(false);
 
-const toggleMenu = () => {
-   setMenuIsopen(prev => setMenuIsopen(!prev))
-    
-}
+  const toggleMenu = () => {
+    setMenuIsopen(prev => setMenuIsopen(!prev))
+      
+  }
 
 
 

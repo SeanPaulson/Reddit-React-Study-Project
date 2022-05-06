@@ -1,4 +1,4 @@
-import SearchImgSvg from "../SearchImgSvg/SearchImgSvg";
+import SearchImgSvg from "../../images/SearchImgSvg";
 import styled from "@emotion/styled";
 
 const SearchDiv = styled.div`
@@ -11,7 +11,7 @@ const StyledInput = styled.input`
     /* flex: 1; */
     color: white;
     text-overflow: ellipsis;
-    font-size: .8rem;
+    font-size: 1rem;
     &:focus {
     outline: none !important;
     border-color: none;
@@ -25,6 +25,7 @@ const StyledLabel = styled.label`
     border-radius: 32px;
     display: -ms-flexbox;
     display: flex;
+    gap: 0.4em;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
     height: 32px;
