@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Posts } from "./Posts/Posts";
 // import { useState } from "react";
 
 const Container = styled.div`
@@ -18,7 +19,7 @@ function Desktop() {
 
   return (
     <Container>
-        <div>lol</div>
+        <Posts />
     </Container>
   );
 }

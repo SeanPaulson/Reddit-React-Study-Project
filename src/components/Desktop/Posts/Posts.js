@@ -1,23 +1,21 @@
-import styled from 'styled-components';
+import { Chip } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { Author } from '../../Posts/Author'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Chip from '@mui/material/Chip';
-import CircleIcon from '@mui/icons-material/Circle';
-import UpVote from '../../images/UpVote';
-import DownVote from "../../images/DownVote"
-import Comments from "../../images/Comments"
-import Share from "../../images/Share"
+import { Votes } from '../../Posts/Votes';
+import { Awards } from '../../Posts/Awards';
+import { Comments } from '../../Posts/Comments';
+import { Share } from '@mui/icons-material';
 import axios from 'axios';
-import Category from "../Mobile/Category/Category";
-import { useEffect, useState } from 'react';
-
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    height: 150vh;
-    background-color: #EFEFED;
+    min-height: 250vh;
+    align-items: center;
+    background-color: #DAE0E6;
 `
 
 const PostWrap = styled.div`
@@ -25,30 +23,25 @@ const PostWrap = styled.div`
     background-color: white;
     margin-top: 0.4em;
     flex-direction: column;
-    height: 30vh;
-    padding: 0em 2vh;
+    min-height: 15vh;
+    width: 95%;
+    padding: 0vw 10vw;
 `
 
 const Top = styled.div`
     display: flex;
     justify-content: space-between;
     height: 5vh;
+    align-items: center;
     width: 100%;
     flex: 1
-`
-
-const SubRedditTitle = styled.h5`
-    font-weight: 500;
-`
-
-const Time = styled.h5`
-    color: grey;
 `
 
 const Left = styled.div`
     display: flex;
     align-items: center;
     gap: 0.3em;
+    height: 100%;
     text-align: center;
 `
 
@@ -60,6 +53,7 @@ const Right = styled.div`
 
 const Content = styled.div`
     display: flex;
+    flex-direction: column;
     flex: 2;
     gap: 1.5vh;
     align-items:center;
@@ -73,13 +67,13 @@ const ContentTitle = styled.p`
 `
 
 const ContentImage = styled.img`
-    width: 70px;
-    height: 50px;
-
+    width: 100%;
+    height: 100%;
 `
 
 const Footer = styled.div`
     flex: 1;
+    min-height: 5vh;
     display:flex;
     justify-content: space-between;
 `
@@ -88,10 +82,6 @@ const Count = styled.p`
     color: grey;
     font-weight: 500;
     font-size: 14px;
-`
-
-const Image = styled.img`
-    width: 15px;
 `
 
 const Info = styled.div`
@@ -109,17 +99,36 @@ const Info = styled.div`
     }
 `
 
-// const ShowMore = styled.div``
+const COUNT_FORMATS =
+[
+  {
+    letter: '',
+    limit: 1e3
+  },
+  {
+    letter: 'K',
+    limit: 1e6
+  }
+];
 
-function Posts() {
+export const Posts = () => {
+
     const [posts, setPosts] = useState()
-    const [categoryChoice, setCategoryChoice] = useState("hot")
+
+    const FormatNumbers = (value) => {
+        const format = COUNT_FORMATS.find(format => (value < format.limit));
+
+        value = (1000 * value / format.limit);
+        value = Math.round(value * 10) / 10;
+      
+        return (value + format.letter);
+    }
 
     useEffect(()=> {
         const getPosts = async() => {
             try {
                 const res = await axios.get(`https://www.reddit.com/hot/.json?limit=10`)
-                setPosts(res.data.data.children)   
+                setPosts(res.data.data.children)  
             } catch (error) {
                 console.log(error)
             }
@@ -128,17 +137,13 @@ function Posts() {
     },[])
 
     return (
-        <>
-        <Category category={categoryChoice} setCategory={setCategoryChoice} />
         <Container>
             {posts?.map((item,index) => (
                 <PostWrap key={index}>
                     <Top>
                         <Left>
-                        <AccountCircleIcon sx={{fontSize: "23px"}} />
-                        <SubRedditTitle>r/{item.data.subreddit}</SubRedditTitle>
-                        <CircleIcon sx={{fontSize: "5px",opacity: 0.5}} />
-                        <Time>5h</Time>
+                            <Author Subreddit={item.data.subreddit} />
+                            <Awards awardsCount={item.data["all_awardings"].length} />
                         </Left>
                         <Right>
                         <Chip sx={{color: "white",fontSize: 12,fontWeight: "600",height: "23px",backgroundColor: "#0079D3"}} label="Join" />
@@ -147,25 +152,12 @@ function Posts() {
                     </Top>
                     <Content>
                         <ContentTitle>{item.data.title}</ContentTitle>
-                        {item.data.thumbnail === "self" ? <></> : <ContentImage src={item.data.thumbnail} />}
+                        {item.data.thumbnail === "self" ? <></> : <ContentImage src={item.data.url} />}
                     </Content>
                     <Footer>
                         <Left>
-                            <Info>
-                                <UpVote color="grey" />
-                                <Count>{item.data.ups}</Count>
-                                <DownVote color="grey" />
-                            </Info>
-                            <Info>
-                                <Image src='https://www.redditstatic.com/gold/awards/icon/gold_64.png'/>
-                                <Image src='https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=64&height=64&auto=webp&s=b4406a2d88bf86fa3dc8a45aacf7e0c7bdccc4fb'/>
-                                <Image src='https://www.redditstatic.com/gold/awards/icon/silver_64.png'/>
-                                <Count>{item.data["all_awardings"].length}</Count>
-                            </Info>
-                            <Info>
-                                <Comments color="grey" />
-                                <Count>{item.data["num_comments"]}</Count>
-                            </Info>
+                            <Votes voteCount={FormatNumbers(item.data.ups)} />
+                            <Comments commentsCount={FormatNumbers(item.data["num_comments"])} />
                         </Left>
                         <Right>
                             <Info>
@@ -177,8 +169,5 @@ function Posts() {
                 </PostWrap>
             ))}
         </Container>
-        </>
     )
 }
-
-export default Posts

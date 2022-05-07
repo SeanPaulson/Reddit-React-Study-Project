@@ -1,9 +1,9 @@
-import Header from "./MobileNavBar/MobileNavBar";
-import Posts from "../Posts/Posts";
-import MobileMenu from "./MobileMenu/MobileMenu";
+import Header from "./NavBar/MobileNavBar";
+import MobilePosts from "./Posts/MobilePosts";
+import MobileMenu from "./Menu/MobileMenu";
 import styled from "styled-components";
 import { useState } from "react";
-import MobileMenuListItems from "./MobileMenu/MobileMenuListItems";
+import MobileMenuListItems from "./Menu/MobileMenuListItems";
 // import { PropaneSharp } from "@mui/icons-material";
 
 // const [menu__btnIsOpen-m, menu__btnIsOpen-m] = useState();
@@ -28,7 +28,7 @@ function Mobile() {
     <MobileMenu menuIsOpen={menuIsOpen} >
         <MobileMenuListItems />
     </MobileMenu>
-    <Posts />
+    <MobilePosts />
     </Container>
   );
 }
