@@ -3,11 +3,12 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Chip from '@mui/material/Chip';
 import CircleIcon from '@mui/icons-material/Circle';
-import UpVote from "../../images/UpVote"
-import DownVote from "../../images/DownVote"
-import Comments from "../../images/Comments"
-import Share from "../../images/Share"
+import UpVote from "../../../images/UpVote"
+import DownVote from "../../../images/DownVote"
+import Comments from "../../../images/Comments"
+import Share from "../../../images/Share"
 import axios from 'axios';
+import Category from "../Category/Category";
 import { useEffect, useState } from 'react';
 
 
@@ -24,7 +25,7 @@ const PostWrap = styled.div`
     background-color: white;
     margin-top: 0.4em;
     flex-direction: column;
-    maxheight: 30vh;
+    height: 30vh;
     padding: 0em 2vh;
 `
 
@@ -112,12 +113,12 @@ const Info = styled.div`
 
 function Posts() {
     const [posts, setPosts] = useState()
+    const [categoryChoice, setCategoryChoice] = useState("hot")
 
     useEffect(()=> {
         const getPosts = async() => {
             try {
-                const res = await axios.get("https://www.reddit.com/hot/.json?limit=10")
-                console.log(res.data.data.children)
+                const res = await axios.get(`https://www.reddit.com/hot/.json?limit=10`)
                 setPosts(res.data.data.children)   
             } catch (error) {
                 console.log(error)
@@ -127,6 +128,8 @@ function Posts() {
     },[])
 
     return (
+        <>
+        <Category category={categoryChoice} setCategory={setCategoryChoice} />
         <Container>
             {posts?.map((item,index) => (
                 <PostWrap key={index}>
@@ -174,6 +177,7 @@ function Posts() {
                 </PostWrap>
             ))}
         </Container>
+        </>
     )
 }
 
