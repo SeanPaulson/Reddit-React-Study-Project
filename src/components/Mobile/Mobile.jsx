@@ -1,5 +1,5 @@
 import Header from "./MobileNavBar/MobileNavBar";
-import Posts from "./Posts/Posts";
+import Posts from "../Posts/Posts";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import styled from "styled-components";
 import { useState } from "react";

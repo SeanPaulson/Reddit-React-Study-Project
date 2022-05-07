@@ -1,4 +1,4 @@
-import SearchImgSvg from "../../../images/SearchImgSvg";
+import SearchImgSvg from '../../images/SearchImgSvg';
 import styled from "@emotion/styled";
 
 const SearchDiv = styled.div`

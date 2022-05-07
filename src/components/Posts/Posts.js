@@ -3,12 +3,12 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Chip from '@mui/material/Chip';
 import CircleIcon from '@mui/icons-material/Circle';
-import UpVote from "../../../images/UpVote"
-import DownVote from "../../../images/DownVote"
-import Comments from "../../../images/Comments"
-import Share from "../../../images/Share"
+import UpVote from '../../images/UpVote';
+import DownVote from "../../images/DownVote"
+import Comments from "../../images/Comments"
+import Share from "../../images/Share"
 import axios from 'axios';
-import Category from "../Category/Category";
+import Category from "../Mobile/Category/Category";
 import { useEffect, useState } from 'react';
 
 

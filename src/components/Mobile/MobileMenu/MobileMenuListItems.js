@@ -3,7 +3,7 @@ import Explore from "../../../images/Explore"
 import Settings from "../../../images/Setting"
 import HelpCenter from "../../../images/HelpCenter"
 import TOS from "../../../images/TOS"
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../../SearchBar/SearchBar";
 import { useState } from "react";
 
 const UL = styled.ul`
