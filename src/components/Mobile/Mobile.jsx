@@ -11,7 +11,7 @@ const Container = styled.div`
 top: 0px;
 `;
 
-function App() {
+function Mobile() {
 
   const [menuIsOpen, setMenuIsopen] = useState(false);
 
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default Mobile;

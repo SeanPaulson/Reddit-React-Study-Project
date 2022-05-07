@@ -1,14 +1,10 @@
-import styled from "styled-components";
 import Mobile from "./components/Mobile/Mobile"
 import Desktop from "./components/Desktop/Desktop"
 import { useEffect, useState } from "react";
 
-const Container = styled.div`
-top: 0px;
-`;
 
 function App() {
-  const [desktop, setDesktop] = useState(true)
+  const [desktop, setDesktop] = useState(false)
 
   useEffect(() => {
       (function(a){
@@ -19,7 +15,7 @@ function App() {
 
   return (
     <>
-      {desktop ? <Desktop /> : <Mobile />}
+      {desktop ? <Mobile /> : <Desktop />}
     </>
   );
 }

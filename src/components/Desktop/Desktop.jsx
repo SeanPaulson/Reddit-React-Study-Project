@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Container = styled.div`
 top: 0px;
 `;
 
-function App() {
+function Desktop() {
 
-  const [menuIsOpen, setMenuIsopen] = useState(false);
+  // const [menuIsOpen, setMenuIsopen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuIsopen(prev => setMenuIsopen(!prev))
+  // const toggleMenu = () => {
+  //   setMenuIsopen(prev => setMenuIsopen(!prev))
       
-  }
+  // }
 
 
 
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default Desktop;
