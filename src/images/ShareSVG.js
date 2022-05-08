@@ -1,4 +1,4 @@
-const Share = ({color}) => (
+const ShareSVG = ({color}) => (
     <svg 
     viewBox="0 0 16 16" 
     xmlns="http://www.w3.org/2000/svg"
@@ -13,4 +13,4 @@ const Share = ({color}) => (
     </svg>
 );
   
-  export default Share;
+  export default ShareSVG;

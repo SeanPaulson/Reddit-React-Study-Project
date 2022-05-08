@@ -4,6 +4,7 @@ import MobileMenu from "./Menu/MobileMenu";
 import styled from "styled-components";
 import { useState } from "react";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
+import Category from '../Mobile/Category/Category'
 // import { PropaneSharp } from "@mui/icons-material";
 
 // const [menu__btnIsOpen-m, menu__btnIsOpen-m] = useState();
@@ -28,6 +29,11 @@ function Mobile() {
     <MobileMenu menuIsOpen={menuIsOpen} >
         <MobileMenuListItems />
     </MobileMenu>
+    <Category category='Category'/>
+    <MobilePosts />
+    <MobilePosts />
+    <MobilePosts />
+    <MobilePosts />
     <MobilePosts />
     </Container>
   );

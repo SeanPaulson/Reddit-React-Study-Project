@@ -8,6 +8,7 @@ const Container = styled.div`
     flex-direction: column;
     gap: 1em;
     padding: 1em 1em 0.1em 1em;
+    background-color: white;
 `
 
 const Title = styled.h1`
