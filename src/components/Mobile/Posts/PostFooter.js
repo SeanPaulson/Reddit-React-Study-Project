@@ -18,6 +18,7 @@ const ShareButton = styled.button`
   margin-left: auto;
 `;
 
+
 const PostFooter = (props) => {
   return (
     <Footer>

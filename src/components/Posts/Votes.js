@@ -9,7 +9,7 @@ const Count = styled.p`
     font-size: 14px;
 `
 
-const Info = styled.div`
+export const Wrapper = styled.div`
     display:flex;
     align-items: center;
     border: 1px solid #EDEFF1;
@@ -24,12 +24,12 @@ const Info = styled.div`
     }
 `
 
-export const Votes = ({voteCount}) => {
+export const Votes = ({voteCount, color}) => {
   return (
-    <Info>
-        <UpVote color="grey" />
+    <Wrapper>
+        <UpVote color={color || 'gray'} />
         <Count>{voteCount}</Count>
         <DownVote color="grey" />
-    </Info>
+    </Wrapper>
   )
 }

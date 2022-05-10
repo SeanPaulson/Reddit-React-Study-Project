@@ -5,9 +5,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
 import Category from '../Mobile/Category/Category'
-// import { PropaneSharp } from "@mui/icons-material";
 
-// const [menu__btnIsOpen-m, menu__btnIsOpen-m] = useState();
 const Container = styled.div`
 top: 0px;
 `;
@@ -18,7 +16,6 @@ function Mobile() {
 
   const toggleMenu = () => {
     setMenuIsopen(prev => setMenuIsopen(!prev))
-      
   }
 
 
