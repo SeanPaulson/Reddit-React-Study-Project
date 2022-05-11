@@ -3,7 +3,7 @@ import Explore from "../../../images/Explore"
 import Settings from "../../../images/Setting"
 import HelpCenter from "../../../images/HelpCenter"
 import TOS from "../../../images/TOS"
-import SearchBar from "../../SearchBar/SearchBar";
+import { SearchBar } from "../../SearchBar/SearchBar";
 import { useState } from "react";
 
 const UL = styled.ul`
@@ -69,6 +69,10 @@ const Styledp = styled.p`
     width: 100%;
 `
 
+const StyledSearchBar = styled(SearchBar)`
+    background-color: #333b4a;
+    border-radius: 32px;
+`
 const MobileMenuListItems = (props) => {
     const [ExploreStatus, setExploreStatus] = useState(false)
     const [settingsStatus, setSettingsStatus] = useState(false)
@@ -76,7 +80,7 @@ const MobileMenuListItems = (props) => {
 
     return ( 
         <UL>
-           <SearchBar />
+           <StyledSearchBar />
            <Listitem>
                 <DropDownTitle onClick={() => ExploreStatus ? setExploreStatus(false) : setExploreStatus(true) } >
                 <Explore width="18px" color="white" />

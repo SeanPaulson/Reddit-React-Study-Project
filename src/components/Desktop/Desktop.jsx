@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import NavBar from "./NavBar/NavBar";
 import { Posts } from "./Posts/Posts";
 // import { useState } from "react";
 
@@ -19,6 +20,7 @@ function Desktop() {
 
   return (
     <Container>
+        <NavBar />
         <Posts />
     </Container>
   );

@@ -6,10 +6,10 @@ const SearchDiv = styled.div`
     margin-bottom: 20px;
 `
 const StyledInput = styled.input`
-    background-color: rgba(246,247,248,0);
+    background-color: inherit;
     border-style: none;
     /* flex: 1; */
-    color: white;
+    color: lightgray;
     text-overflow: ellipsis;
     font-size: 1rem;
     &:focus {
@@ -19,10 +19,10 @@ const StyledInput = styled.input`
 `
 
 const StyledLabel = styled.label`
-        -ms-flex-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    background-color: rgba(246,247,248,.1);
-    border-radius: 32px;
+    /* background-color: rgba(246,247,248,.1); */
+    border-radius: 4px;
     display: -ms-flexbox;
     display: flex;
     gap: 0.4em;
@@ -32,16 +32,19 @@ const StyledLabel = styled.label`
     padding: 0 12px;
 `
 
-
-const SearchBar = (props) => {
+export const SearchBar = ({className}) => {
+  
   return (
-    <SearchDiv>
-      <StyledLabel>
-        <SearchImgSvg />
-        <StyledInput placeholder="Search reddit"/>
-      </StyledLabel>
-    </SearchDiv>
+      <SearchDiv className={className} >
+        <StyledLabel className={className}>
+          <SearchImgSvg className={className}/>
+          <StyledInput placeholder="Search reddit"/>
+        </StyledLabel>
+      </SearchDiv>
   )
-};
+}
 
-export default SearchBar;
+  SearchBar.label = StyledLabel;
+  SearchBar.input = StyledInput;
+  SearchBar.wrapper = SearchDiv;
+
