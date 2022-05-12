@@ -4,6 +4,7 @@ import { SearchBar } from "../../SearchBar/SearchBar";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { Chip } from "@mui/material";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Header = styled.header`
   background-color: white;
@@ -53,20 +54,36 @@ const StyledSearchBar = styled(SearchBar)`
     border-radius: 5px;
   }
 `;
-
-const StyledChip = styled(Chip)`
-    && {color: "red";}
-    font-size: 12;
-    font-weight: "600";
-    height: "30px";
-    background-color: "#0079d3";
+const SignupChip = styled(Chip)`
+    && {
+      color: white;
+      font-size: 12px; 
+      font-weight: 600;
+      height: 30px;
+      background-color: #0079d3;
+    }
     &:hover {
         background-color: #33a8ff;
         cursor: pointer;
     }
 `
+const LoginChip = styled(Chip)`
+    && {
+      color: #0079d3;
+      font-size: 12px; 
+      font-weight: 600;
+      height: 30px;
+      background-color: white;
+      border: 1px solid #0079d3;
+    }
+    &:hover {
+        background-color: #cce4f6;
+        cursor: pointer;
+    }
+`
 
 const NavBar = (props) => {
+  const mobileViewMatch = useMediaQuery('(min-width: 615px)');
   return (
     <Header>
       <nav>
@@ -75,7 +92,8 @@ const NavBar = (props) => {
             <Logo width="2rem" />
           </Button>
           <StyledSearchBar />
-          <StyledChip label="Sign Up" />
+          {mobileViewMatch && <LoginChip label="Log In" />}
+          {mobileViewMatch && <SignupChip label="Sign Up" />}
           <HoverButton>
             <PersonOutlineOutlinedIcon sx={{ color: "gray", width: "2rem" }} />
             <ExpandMoreOutlinedIcon sx={{ color: "gray" }} />
