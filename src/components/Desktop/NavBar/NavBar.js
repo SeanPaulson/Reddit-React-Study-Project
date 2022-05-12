@@ -55,7 +55,7 @@ const StyledSearchBar = styled(SearchBar)`
 `;
 
 const StyledChip = styled(Chip)`
-    && color: "red";
+    && {color: "red";}
     font-size: 12;
     font-weight: "600";
     height: "30px";
