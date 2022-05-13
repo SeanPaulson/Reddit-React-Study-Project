@@ -18,13 +18,23 @@ const ShareButton = styled.button`
   margin-left: auto;
 `;
 
+const MobileVotes = styled(Votes)`
+  border: 1px solid #EDEFF1;
+`
+
+const MobileComments = styled(Comments)`
+border: 1px solid #EDEFF1;
+padding: 0em 0.5em;
+font-weight: 500;
+font-size: 14px;
+`
 
 const PostFooter = (props) => {
   return (
     <Footer>
-      <Votes voteCount={7} />
+      <MobileVotes voteCount={7} />
       <Awards awardsCount={3} />
-      <Comments commentsCount={8} />
+      <MobileComments commentsCount={8} />
       <ShareButton>
         <ShareSVG color="grey" />
       </ShareButton>

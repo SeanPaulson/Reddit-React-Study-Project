@@ -12,7 +12,6 @@ const Count = styled.p`
 export const Wrapper = styled.div`
     display:flex;
     align-items: center;
-    border: 1px solid #EDEFF1;
     padding: 0em 0.5em;
     height: 3vh;
     border-radius: 15px;
@@ -24,12 +23,20 @@ export const Wrapper = styled.div`
     }
 `
 
-export const Votes = ({voteCount, color}) => {
+const UpVotes = styled(UpVote)`
+    padding: 0.3em;
+`
+
+const DownVotes = styled(DownVote)`
+    padding: 0.3em;
+`
+
+export const Votes = ({voteCount, color,className}) => {
   return (
-    <Wrapper>
-        <UpVote color={color || 'gray'} />
+    <Wrapper className={className} >
+        <UpVotes className="UpVotes" color={color || 'gray'} />
         <Count>{voteCount}</Count>
-        <DownVote color="grey" />
+        <DownVotes className="UpVotes" color="grey" />
     </Wrapper>
   )
 }

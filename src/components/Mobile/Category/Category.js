@@ -32,6 +32,7 @@ const StyledButton = styled.div`
 
 const CAT = styled.p`
     font-size: 15px;
+    margin: 0px;
 `
 
 const Topics = styled.div`
