@@ -8,7 +8,7 @@ const SearchDiv = styled.div`
 const StyledInput = styled.input`
     background-color: inherit;
     border-style: none;
-    /* flex: 1; */
+    flex: 1;
     color: lightgray;
     text-overflow: ellipsis;
     font-size: 1rem;
@@ -36,7 +36,7 @@ export const SearchBar = ({className}) => {
   
   return (
       <SearchDiv className={className} >
-        <StyledLabel className={className}>
+        <StyledLabel >
           <SearchImgSvg className={className}/>
           <StyledInput placeholder="Search reddit"/>
         </StyledLabel>
