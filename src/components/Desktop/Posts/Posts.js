@@ -1,50 +1,69 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Author } from '../../Posts/Author'
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import axios from 'axios';
 import { PostHeader } from './PostHeader';
 import { PostBody } from './PostBody';
+import { Votes } from '../../Posts/Votes';
 import { PostFooter } from './PostFooter';
+import { sizes } from '../MediaQueries';
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    gap: 0.6em;
-    min-height: 250vh;
+    min-height: 1050px;
     align-items: center;
-    background-color: #DAE0E6;
+    @media only screen and (min-width: ${sizes.sm}){
+        margin: 3em;
+    }
+`
+
+const StyledVotes = styled(Votes)`
+    display: none;
+    flex-direction: column;
+    height: 10vh;
+    position: absolute;
+    left: 23.5px;
+    .UpVotes:hover {
+        background-color: rgb(144,144,144, 0.2);
+    }
+    .UpVotes {
+        width: 20px;
+        height: 20px;
+    }
+    .Count {
+        margin: 0px;
+        color: black;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 16px;
+        pointer-events: none;
+        word-break: normal;
+    }
+    @media only screen and (min-width: ${sizes.sm}){
+        display: flex;
+    }
 `
 
 const PostWrap = styled.div`
     display: flex;
-    background-color: white;
-    margin-top: 0.4em;
+    background-color: #F8F9FA;
+    margin: 0.4em;
     flex-direction: column;
     min-height: 13vh;
     width: 97%;
     padding: 0vw 1vw;
-    border-top: 1px solid rgb(135, 138, 140, 0.7);
-    border-bottom: 1px solid rgb(135, 138, 140, 0.7);
+    border: 1.5px solid rgb(135, 138, 140, 0.7);
     &:hover {
         cursor: pointer;
-        border: 1px solid rgb(135, 138, 140);
+        border: 1.5px solid rgb(135, 138, 140);
     }
-`
-
-const Left = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 0.3em;
-    height: 100%;
-    text-align: center;
-`
-
-const Right = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 0.5em
+    @media only screen and (min-width: ${sizes.sm}){
+        width: 100%;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 0px;
+    }
 `
 
 export const Posts = () => {
@@ -56,10 +75,12 @@ export const Posts = () => {
             try {
                 const res = await axios.get(`https://www.reddit.com/hot/.json?limit=10`)
                 setPosts(res.data.data.children)  
+                console.log(posts)
             } catch (error) {
                 console.log(error)
             }
         }
+        
         getPosts()
     },[])
 
@@ -67,9 +88,12 @@ export const Posts = () => {
         <Container>
             {posts?.map((item,index) => (
                 <PostWrap key={index}>
+                    <StyledVotes voteCount={item.data.ups} />
+                    <>
                     <PostHeader Subreddit={item.data.subreddit} awardsCount={item.data["all_awardings"].length} />
                     <PostBody Title={item.data.title} Thumbnail={item.data.thumbnail} Image={item.data.url} />
                     <PostFooter votes={item.data.ups} comments={item.data["num_comments"]} />
+                    </>
                 </PostWrap>
             ))}
         </Container>

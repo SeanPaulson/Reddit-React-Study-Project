@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import UpVote from '../../images/UpVote';
 import DownVote from "../../images/DownVote"
+import {FormatNumbers} from "../../utils"
 
 const Count = styled.p`
     color: grey;
@@ -32,11 +33,12 @@ const DownVotes = styled(DownVote)`
 `
 
 export const Votes = ({voteCount, color,className}) => {
-  return (
-    <Wrapper className={className} >
-        <UpVotes className="UpVotes" color={color || 'gray'} />
-        <Count>{voteCount}</Count>
-        <DownVotes className="UpVotes" color="grey" />
-    </Wrapper>
-  )
+
+    return (
+        <Wrapper className={className} >
+            <UpVotes className="UpVotes" color={color || 'gray'} />
+            <Count className="Count">{FormatNumbers(voteCount)}</Count>
+            <DownVotes className="UpVotes" color="grey" />
+        </Wrapper>
+    )
 }

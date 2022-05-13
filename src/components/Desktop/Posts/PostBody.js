@@ -7,7 +7,8 @@ const Container = styled.div`
     flex: 2;
     gap: 1.5vh;
     align-items:center;
-    justify-content: space-between;
+    background-color: white;
+    padding: 0em 0.3em;
 `
 
 const ContentTitle = styled.p`

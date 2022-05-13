@@ -6,3 +6,24 @@ export function isMobileTablet(){
     })(navigator.userAgent||navigator.vendor||window.opera);
     return check;
 }
+
+const COUNT_FORMATS =
+[
+{
+    letter: '',
+    limit: 1e3
+},
+{
+    letter: 'K',
+    limit: 1e6
+}
+];
+
+export const FormatNumbers = (votes) => {
+    const format = COUNT_FORMATS.find(format => (votes < format.limit));
+
+    votes = (1000 * votes / format.limit);
+    votes = Math.round(votes * 10) / 10;
+  
+    return (votes + format.letter);
+}

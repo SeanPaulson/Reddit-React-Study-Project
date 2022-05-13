@@ -26,9 +26,9 @@ const Left = styled.div`
 
 export const Author = ({Subreddit,className}) => {
   return (
-    <Left>
+    <Left className={className}>
     <AccountCircleIcon sx={{fontSize: "23px"}} />
-    <SubRedditTitle className={className}>r/{Subreddit}</SubRedditTitle>
+    <SubRedditTitle className="Subreddit">r/{Subreddit}</SubRedditTitle>
     <CircleIcon sx={{fontSize: "5px",opacity: 0.5}} />
     <Time>5h</Time>
     </Left>

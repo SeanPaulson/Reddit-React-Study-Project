@@ -6,17 +6,19 @@ import Chip from "@mui/material/Chip";
 
 const Container = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 5vh;
     align-items: center;
     width: 100%;
-    flex: 1
+    flex: 1;
+    background-color: white;
 `
 
 const DesktopAuthor = styled(Author)`
-    &:hover {
+    .Subreddit:hover {
         text-decoration: underline;
     }
+    padding: 0em 0.3em 0em 0.3em;
 `
 
 const StyledChip = styled(Chip)`
@@ -35,6 +37,7 @@ const StyledChip = styled(Chip)`
 `;
 
 const DesktopAwards = styled(Awards)`
+    border: none;
 `
 
 

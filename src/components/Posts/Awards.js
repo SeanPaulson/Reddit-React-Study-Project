@@ -27,9 +27,9 @@ const Info = styled.div`
     }
 `
 
-export const Awards = ({awardsCount}) => {
+export const Awards = ({awardsCount, className}) => {
   return (
-    <Info>
+    <Info className={className}>
         <Image src='https://www.redditstatic.com/gold/awards/icon/gold_64.png'/>
         <Image src='https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=64&height=64&auto=webp&s=b4406a2d88bf86fa3dc8a45aacf7e0c7bdccc4fb'/>
         <Image src='https://www.redditstatic.com/gold/awards/icon/silver_64.png'/>

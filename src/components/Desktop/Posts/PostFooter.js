@@ -58,41 +58,21 @@ const Info = styled.div`
 `
 
 const Footer = styled.div`
-    margin: 0.5em 0em;
     display:flex;
+    padding: 0.3em 0em;
     height: 3vh;
     gap: 0.9em;
     align-items: center;
+    background-color: white;
 `
-
-const COUNT_FORMATS =
-[
-  {
-    letter: '',
-    limit: 1e3
-  },
-  {
-    letter: 'K',
-    limit: 1e6
-  }
-];
 
 export const PostFooter = ({votes,comments}) => {
 
-    const FormatNumbers = (value) => {
-        const format = COUNT_FORMATS.find(format => (value < format.limit));
-
-        value = (1000 * value / format.limit);
-        value = Math.round(value * 10) / 10;
-      
-        return (value + format.letter);
-    }
-
     return (
         <Footer>
-            <StyledVotes voteCount={FormatNumbers(votes)} />
+            <StyledVotes voteCount={votes} />
             <CommentsWrap>
-                <Comments commentsCount={FormatNumbers(comments)} />
+                <Comments commentsCount={comments} />
                 <p>Comments</p>
             </CommentsWrap>
             <Info>
