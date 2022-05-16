@@ -1,6 +1,6 @@
-import Header from "./NavBar/MobileNavBar";
+import { Header } from "./Header/Header";
 import MobilePosts from "./Posts/MobilePosts";
-import MobileMenu from "./Menu/MobileMenu";
+import { StyledMenu } from "./Menu/Menu.styled";
 import styled from "styled-components";
 import { useState } from "react";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
@@ -23,9 +23,9 @@ function Mobile() {
   return (
     <Container>
     <Header toggleMenu = {toggleMenu}/>
-    <MobileMenu menuIsOpen={menuIsOpen} >
+    <StyledMenu menuIsOpen={menuIsOpen} >
         <MobileMenuListItems />
-    </MobileMenu>
+    </StyledMenu>
     <Category category='Category'/>
     <MobilePosts />
     <MobilePosts />
