@@ -15,7 +15,7 @@ const Image = styled.img`
 const Info = styled.div`
     display:flex;
     align-items: center;
-    border: 1px solid #EDEFF1;
+    border: 1px solid ${({ theme }) => theme.app.colors.gray};
     padding: 0em 0.5em;
     height: 3vh;
     border-radius: 15px;
