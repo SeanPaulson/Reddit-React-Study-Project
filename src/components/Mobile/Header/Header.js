@@ -3,8 +3,8 @@ import RedditLogo from "../../../images/RedditLogo";
 import HamburgerMenuSVG from "../../../images/HamburgerMenu";
 
 const AppHeader = styled.header`
-  background-color: #1d2535;
-  color: white;
+  background-color: ${({ theme }) => theme.app.colors.header};
+  color: ${({ theme }) => theme.app.colors.white};
   width: 100%;
   & ul {
     display: flex;

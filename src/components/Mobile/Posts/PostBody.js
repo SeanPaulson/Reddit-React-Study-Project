@@ -11,6 +11,7 @@ const ContentTitle = styled.p`
   margin: 0px;
   font-weight: 600;
   align-self: flex-start;
+  color: ${({ theme }) => theme.app.colors.lightgray};
 `;
 
 const ContentImage = styled.img`

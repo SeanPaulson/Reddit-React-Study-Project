@@ -8,12 +8,16 @@ const Container = styled.div`
   align-items: center;
   gap: 1rem;
   width: 100%;
+
+  & .${'moreHorizIon'} {
+    color: ${({ theme }) => theme.app.colors.lightgray};
+  }
   
 `;
 
 const StyledChip = styled(Chip)`
   && {
-    background-color: #0079d3;
+    background-color: ${({ theme }) => theme.app.colors.btn_blue};
     font-size: 12;
     font-weight: 600;
     height: 23px;
@@ -30,7 +34,7 @@ const PostHeader = (props) => {
     <Container>
       <Author Subreddit="Author" />
       <StyledChip label="Join" />
-      <MoreHorizIcon sx={{ fontSize: "15px" }} />
+      <MoreHorizIcon className="moreHorizIon" sx={{ fontSize: "15px" }} />
     </Container>
   );
 };
