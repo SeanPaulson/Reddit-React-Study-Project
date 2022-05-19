@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from '../../themes';
 import NavBar from "./NavBar/NavBar";
 import { Posts } from "./Posts/Posts";
+import { Container } from './Container';
 // import { useState } from "react";
 
-const Container = styled.div`
-top: 0px;
-`;
+
 
 function Desktop() {
 
@@ -19,10 +19,12 @@ function Desktop() {
 
 
   return (
-    <Container>
+    <ThemeProvider theme={lightTheme}>
+      <Container>
         <NavBar />
         <Posts />
-    </Container>
+      </Container>
+    </ThemeProvider>
   );
 }
 

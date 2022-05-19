@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.app.colors.post_bg};
   margin-top: .4rem;
   padding: .4rem .7rem;
 `;

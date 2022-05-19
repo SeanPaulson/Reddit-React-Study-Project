@@ -8,6 +8,13 @@ import { useState } from "react";
 
 const UL = styled.ul`
     padding: 10px 16px 4px;
+    & button {
+        background-color: inherit;
+        padding: 0;
+        margin: 0;
+        border-style: none;
+        color: inherit;
+    }
 `
 
 const Listitem = styled.li`
@@ -73,7 +80,7 @@ const StyledSearchBar = styled(SearchBar)`
     background-color: #333b4a;
     border-radius: 32px;
 `
-const MobileMenuListItems = (props) => {
+const MobileMenuListItems = ({ toggleTheme }) => {
     const [ExploreStatus, setExploreStatus] = useState(false)
     const [settingsStatus, setSettingsStatus] = useState(false)
     const [tosStatus, setTosStatus] = useState(false)
@@ -102,7 +109,7 @@ const MobileMenuListItems = (props) => {
                     <Styledp>Settings</Styledp>
                 </DropDownTitle>
                 <SettingsDropDown open={settingsStatus}>
-                    <Option>Dark Mode</Option>
+                    <button onClick={() => toggleTheme()}><Option>Dark Mode</Option></button>
                     <Option>Ask To Open In App</Option>
                 </SettingsDropDown>
            </Listitem>

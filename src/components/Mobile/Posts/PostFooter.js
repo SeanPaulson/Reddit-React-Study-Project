@@ -11,7 +11,7 @@ const Footer = styled.div`
 `;
 
 const ShareButton = styled.button`
-  border: 1px solid #edeff1;
+  border: 1px solid ${({ theme }) => theme.app.colors.gray};
   border-radius: 15px;
   background-color: transparent;
   font-size: 15px;
@@ -19,11 +19,11 @@ const ShareButton = styled.button`
 `;
 
 const MobileVotes = styled(Votes)`
-  border: 1px solid #EDEFF1;
+  border: 1px solid ${({ theme }) => theme.app.colors.gray};
 `
 
 const MobileComments = styled(Comments)`
-border: 1px solid #EDEFF1;
+border: 1px solid ${({ theme }) => theme.app.colors.gray};
 padding: 0em 0.5em;
 font-weight: 500;
 font-size: 14px;

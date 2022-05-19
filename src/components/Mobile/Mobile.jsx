@@ -1,14 +1,15 @@
+import styled, { ThemeProvider } from "styled-components";
+import { useState } from "react";
+import { lightTheme, darkTheme } from '../../themes';
 import { Header } from "./Header/Header";
 import MobilePosts from "./Posts/MobilePosts";
 import { StyledMenu } from "./Menu/Menu.styled";
-import styled from "styled-components";
-import { useState } from "react";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
 import Category from '../Mobile/Category/Category'
+import { StyledContainer } from "./styles/StyledContainer";
 
-const Container = styled.div`
-top: 0px;
-`;
+
+
 
 function Mobile() {
 
@@ -18,21 +19,27 @@ function Mobile() {
     setMenuIsopen(prev => setMenuIsopen(!prev))
   }
 
+  const [theme, setTheme] = useState('lightTheme');
 
+  const toggleTheme = () => {
+    theme === 'lightTheme' ? setTheme('darkTheme') : setTheme('lightTheme');
+  }
 
   return (
-    <Container>
-    <Header toggleMenu = {toggleMenu}/>
-    <StyledMenu menuIsOpen={menuIsOpen} >
-        <MobileMenuListItems />
-    </StyledMenu>
-    <Category category='Category'/>
-    <MobilePosts />
-    <MobilePosts />
-    <MobilePosts />
-    <MobilePosts />
-    <MobilePosts />
-    </Container>
+    <ThemeProvider theme={theme === 'lightTheme' ? lightTheme : darkTheme}>
+      <StyledContainer>
+        <Header toggleMenu = {toggleMenu}/>
+        <StyledMenu menuIsOpen={menuIsOpen} >
+            <MobileMenuListItems toggleTheme={toggleTheme}/>
+        </StyledMenu>
+        <Category category='Category'/>
+        <MobilePosts />
+        <MobilePosts />
+        <MobilePosts />
+        <MobilePosts />
+        <MobilePosts />
+      </StyledContainer>
+    </ThemeProvider>
   );
 }
 

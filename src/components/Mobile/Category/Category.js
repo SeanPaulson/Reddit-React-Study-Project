@@ -8,12 +8,13 @@ const Container = styled.div`
     flex-direction: column;
     gap: 1em;
     padding: 1em 1em 0.1em 1em;
-    background-color: white;
+    background-color: ${({ theme }) => theme.app.colors.post_bg};
 `
 
 const Title = styled.h1`
     font-size: 26px;
     margin: 0px;
+    color: ${({ theme }) => theme.app.colors.color}
 `
 
 const Sort = styled.div`
@@ -38,10 +39,11 @@ const CAT = styled.p`
 const Topics = styled.div`
     display: ${prop => prop.open};
     flex-direction: column;
-    background: #FFFFFF;
     box-shadow: 0px 0px 1000px black;
     padding: 1em;
     gap: 1em;
+    background-color: ${({ theme }) => theme.app.colors.post_bg};
+    border: 1px solid ${({ theme }) => theme.app.colors.gray};
 `
 
 const TopicItems = styled.button`
@@ -49,6 +51,7 @@ const TopicItems = styled.button`
     font-size: 17px;
     border: none;
     background: none;
+    color: ${({ theme }) => theme.app.colors.color}
 `
 
 export default function Category({category}) {
