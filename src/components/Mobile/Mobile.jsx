@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import { lightTheme, darkTheme } from './themes';
+import { lightTheme, darkTheme } from '../../themes';
 import { Header } from "./Header/Header";
 import MobilePosts from "./Posts/MobilePosts";
 import { StyledMenu } from "./Menu/Menu.styled";

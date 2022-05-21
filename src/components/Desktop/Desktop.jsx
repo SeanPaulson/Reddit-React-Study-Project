@@ -3,7 +3,6 @@ import styled, { ThemeProvider } from "styled-components";
 import NavBar from "./NavBar/NavBar";
 import { lightTheme, darkTheme } from './themes';
 import { Posts } from "./Posts/Posts";
-// import { useState } from "react";
 
 const Container = styled.div`
 top: 0px;
