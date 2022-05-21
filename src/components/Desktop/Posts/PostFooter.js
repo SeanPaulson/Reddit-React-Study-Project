@@ -63,7 +63,6 @@ const Footer = styled.div`
     height: 3vh;
     gap: 0.9em;
     align-items: center;
-    background-color: white;
 `
 
 export const PostFooter = ({votes,comments}) => {

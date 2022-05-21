@@ -7,7 +7,7 @@ import { Chip } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Header = styled.header`
-  background-color: white;
+  background-color: ${({ theme }) => theme.app.colors.header};
 `;
 const Button = styled.button`
   background-color: inherit;
@@ -24,6 +24,7 @@ const Button = styled.button`
 
 const HoverButton = styled(Button)`
   border-style: solid;
+  border: 1px solid ${({ theme }) => theme.app.colors.header};
   &:hover {
     border-radius: 5px;
     border-color: lightgray;
@@ -40,27 +41,27 @@ const UL = styled.ul`
 `;
 
 const StyledSearchBar = styled(SearchBar)`
-  background-color: #f6f7f8;
+  background-color: ${({ theme }) => theme.app.colors.lightgray};
   fill: black;
-  border: 1px solid lightgray;
+  border: 1px solid ${({ theme }) => theme.app.colors.gray};
   border-radius: 5px;
   flex-grow: 1;
   && {
     margin-bottom: 0;
   }
   &:hover {
-    background-color: white;
-    border: 1px solid blue;
+    background-color: ${({ theme }) => theme.app.colors.lightgray};
+    border: 1px solid ${({ theme }) => theme.app.colors.default};
     border-radius: 5px;
   }
 `;
 const SignupChip = styled(Chip)`
     && {
-      color: white;
+      color: ${({ theme }) => theme.app.colors.body};
       font-size: 12px; 
       font-weight: 600;
       height: 30px;
-      background-color: #0079d3;
+      background-color: ${({ theme }) => theme.app.colors.btn_blue};
     }
     &:hover {
         background-color: #33a8ff;

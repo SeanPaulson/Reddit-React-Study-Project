@@ -7,8 +7,10 @@ const Container = styled.div`
     flex: 2;
     gap: 1.5vh;
     align-items:center;
-    background-color: white;
+    background-color: ${({ theme }) => theme.app.colors.post_bg};
     padding: 0em 0.3em;
+    max-height: 100%;
+    max-width: 100%;
 `
 
 const ContentTitle = styled.p`
@@ -18,8 +20,9 @@ const ContentTitle = styled.p`
 `
 
 const ContentImage = styled.img`
-    width: 100%;
-    height: 100%;
+    max-height: 512px;
+    max-width: 100%;
+    object-fit: cover;
 `
 
 export const PostBody = ({Title,Thumbnail, Image}) => {

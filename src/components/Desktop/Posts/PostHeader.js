@@ -11,13 +11,13 @@ const Container = styled.div`
     align-items: center;
     width: 100%;
     flex: 1;
-    background-color: white;
 `
 
 const DesktopAuthor = styled(Author)`
     .Subreddit:hover {
         text-decoration: underline;
     }
+    color: ${({ theme }) => theme.app.colors.color};
     padding: 0em 0.3em 0em 0.3em;
 `
 

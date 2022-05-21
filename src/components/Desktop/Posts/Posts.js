@@ -6,24 +6,32 @@ import { PostBody } from './PostBody';
 import { Votes } from '../../Posts/Votes';
 import { PostFooter } from './PostFooter';
 import { sizes } from '../MediaQueries';
+import { SideInfo } from '../SideInfo/SideInfo';
 
-const Container = styled.div`
+const PostsContainer = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    min-height: 1050px;
     align-items: center;
+    gap: 10px;
     @media only screen and (min-width: ${sizes.sm}){
         margin: 3em;
     }
+    @media only screen and (min-width: ${sizes.lg}) {
+        width: 640px;
+    }
+    color: ${({ theme }) => theme.app.colors.color};
+`
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
 `
 
 const StyledVotes = styled(Votes)`
     display: none;
     flex-direction: column;
     height: 10vh;
-    position: absolute;
-    left: 23.5px;
     .UpVotes:hover {
         background-color: rgb(144,144,144, 0.2);
     }
@@ -39,6 +47,7 @@ const StyledVotes = styled(Votes)`
         line-height: 16px;
         pointer-events: none;
         word-break: normal;
+        color: ${({ theme }) => theme.app.colors.color};
     }
     @media only screen and (min-width: ${sizes.sm}){
         display: flex;
@@ -47,12 +56,9 @@ const StyledVotes = styled(Votes)`
 
 const PostWrap = styled.div`
     display: flex;
-    background-color: #F8F9FA;
-    margin: 0.4em;
-    flex-direction: column;
-    min-height: 13vh;
-    width: 97%;
-    padding: 0vw 1vw;
+    flex-direction: row;
+    background-color: ${({ theme }) => theme.app.colors.post_bg};
+    max-height: 700px;
     border: 1.5px solid rgb(135, 138, 140, 0.7);
     &:hover {
         cursor: pointer;
@@ -61,9 +67,15 @@ const PostWrap = styled.div`
     @media only screen and (min-width: ${sizes.sm}){
         width: 100%;
         border-radius: 5px;
-        padding-left: 40px;
-        padding-right: 0px;
     }
+`
+
+const Post = styled.div`
+    display: flex;
+    background-color: ${({ theme }) => theme.app.colors.post_bg};
+    flex-direction: column;
+    min-height: 13vh;
+    width: 97%;
 `
 
 export const Posts = () => {
@@ -86,16 +98,19 @@ export const Posts = () => {
 
     return (
         <Container>
-            {posts?.map((item,index) => (
-                <PostWrap key={index}>
-                    <StyledVotes voteCount={item.data.ups} />
-                    <>
-                    <PostHeader Subreddit={item.data.subreddit} awardsCount={item.data["all_awardings"].length} />
-                    <PostBody Title={item.data.title} Thumbnail={item.data.thumbnail} Image={item.data.url} />
-                    <PostFooter votes={item.data.ups} comments={item.data["num_comments"]} />
-                    </>
-                </PostWrap>
-            ))}
+            <PostsContainer>
+                {posts?.map((item,index) => (
+                    <PostWrap key={index}>
+                        <StyledVotes voteCount={item.data.ups} />
+                        <Post>
+                        <PostHeader Subreddit={item.data.subreddit} awardsCount={item.data["all_awardings"].length} />
+                        <PostBody Title={item.data.title} Thumbnail={item.data.thumbnail} Image={item.data.url} />
+                        <PostFooter votes={item.data.ups} comments={item.data["num_comments"]} />
+                        </Post>
+                    </PostWrap>
+                ))}
+            </PostsContainer>
+            <SideInfo />
         </Container>
     )
 }
