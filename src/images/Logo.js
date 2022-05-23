@@ -3,7 +3,7 @@ const Logo = (props) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
-      class="_1O4jTk-dZ-VIxsCuYB6OR8 "
+      className="_1O4jTk-dZ-VIxsCuYB6OR8 "
       width={props.width}
     >
       <g>

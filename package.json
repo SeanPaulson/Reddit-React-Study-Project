@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -19,10 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PORT=9002 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [

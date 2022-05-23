@@ -60,7 +60,7 @@ const SubTitle = styled.p`
 const Subreddit = styled.div`
   display: flex;
   align-items: center;
-  padding: 1em;
+  padding: 0 1em;
   gap: 5px;
   font-size: 15px;
   font-weight: 400;
