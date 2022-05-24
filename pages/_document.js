@@ -11,7 +11,7 @@ export default function Document() {
           name="description"
           content="Web site created using create-react-app"
         />
-        <link rel="icon" href="./RedditLogo.svg" />
+        <link rel="icon" href="favicon.svg" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         
       </Head>
