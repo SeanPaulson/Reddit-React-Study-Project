@@ -36,7 +36,7 @@ const CAT = styled.p`
     margin: 0px;
 `
 
-const Topics = styled.div`
+const Topics = styled.div<{open: string}>`
     display: ${prop => prop.open};
     flex-direction: column;
     box-shadow: 0px 0px 1000px black;
@@ -57,7 +57,7 @@ const TopicItems = styled.button`
 export default function Category({category}) {
     const [menuStatus, setMenuStatus] = useState(false)
 
-    const handleCategory = (e) => {
+    const handleCategory = (e: object) => {
         console.log(e.target)
     }
 
