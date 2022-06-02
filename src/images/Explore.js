@@ -3,7 +3,7 @@ const Explore = ({ color,width }) => {
   
 
     return (
-        <svg class="_1Nz3L7ke0ZMkZnp0jGbvgo _3XMBLB73C1-QbQZUyAQnyw" 
+        <svg className="_1Nz3L7ke0ZMkZnp0jGbvgo _3XMBLB73C1-QbQZUyAQnyw" 
         viewBox="0 0 20 20" 
         fill={color}
         width={width}

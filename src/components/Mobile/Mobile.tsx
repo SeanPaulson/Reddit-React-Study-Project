@@ -1,11 +1,11 @@
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import { lightTheme, darkTheme } from '../../themes';
 import { Header } from "./Header/Header";
 import MobilePosts from "./Posts/MobilePosts";
 import { StyledMenu } from "./Menu/Menu.styled";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
-import Category from '../Mobile/Category/Category'
+import Category from "./Category/Category";
 import { StyledContainer } from "./styles/StyledContainer";
 
 
@@ -15,8 +15,8 @@ function Mobile() {
 
   const [menuIsOpen, setMenuIsopen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuIsopen(prev => setMenuIsopen(!prev))
+  function toggleMenu() {
+    setMenuIsopen(!menuIsOpen);
   }
 
   const [theme, setTheme] = useState('lightTheme');
