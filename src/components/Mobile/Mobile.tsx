@@ -3,17 +3,18 @@ import { useState } from "react";
 import { lightTheme, darkTheme } from '../../themes';
 import { Header } from "./Header/Header";
 import MobilePosts from "./Posts/MobilePosts";
-import { StyledMenu } from "./Menu/Menu.styled";
+import { StyledMenu } from "./Menu/Menu";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
 import Category from "./Category/Category";
 import { StyledContainer } from "./styles/StyledContainer";
+import { boolean } from "joi";
 
 
 
 
 function Mobile() {
 
-  const [menuIsOpen, setMenuIsopen] = useState(false);
+  const [menuIsOpen, setMenuIsopen] = useState<boolean>(false);
 
   function toggleMenu() {
     setMenuIsopen(!menuIsOpen);

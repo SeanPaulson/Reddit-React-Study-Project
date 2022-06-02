@@ -71,9 +71,7 @@ export default function Category({category}) {
                 <CAT>{category}</CAT>
                 <KeyboardArrowDown />
             </StyledButton>
-            <Topics
-            open={menuStatus ? "flex" : "none"}
-            >
+            <Topics open={menuStatus ? "flex" : "none"} >
                 <TopicItems onClick={(e) => {handleCategory(e)}}>Hot</TopicItems>
                 <TopicItems onClick={(e) => {handleCategory(e)}}>Top</TopicItems>
             </Topics>
