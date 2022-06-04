@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { sizes } from '../MediaQueries';
 import Chip from "@mui/material/Chip";
+import Image from 'next/image';
+import bgBanner from '../../../images/banner-background.png';
 
 const Container = styled.div`
     display: none;
@@ -10,6 +12,7 @@ const Container = styled.div`
     max-height: 300px;
     background-color: ${({ theme }) => theme.app.colors.post_bg};
     width: 312px;
+    overflow: hidden;
     @media only screen and (min-width: ${sizes.lg}) {
         display: flex;
     }
@@ -19,21 +22,20 @@ const Container = styled.div`
 `
 
 const TitleWrap = styled.div`
-background-position: 50%;
-background-repeat: no-repeat;
+/* background-position: 50%;
+background-repeat: no-repeat; */
 height: 80px;
 display: flex;
 align-items: flex-end;
 width: 100%;
 color: white;
-border-radius: 5px 5px 0px 0px;
 position: relative;
-
-background-image: url("https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png")
+/* border-radius: 5px 5px 0px 0px; */
 `
 
 const Title = styled.h2`
     margin: 5px 10px;
+    z-index: 1;
 `
 
 const StyledChip = styled(Chip)`
@@ -85,6 +87,11 @@ export const SideInfo = () => {
   return (
     <Container>
         <TitleWrap>
+          <Image 
+            src={bgBanner}
+            alt="background image"
+            layout="fill"
+          />
         <Title>Subreddits</Title>
         </TitleWrap>
         <SubredditWrap>
