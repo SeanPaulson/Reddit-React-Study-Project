@@ -4,10 +4,8 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     display: flex;
-    height: 10vh;
     flex-direction: column;
-    gap: 1em;
-    padding: 1em 1em 0.1em 1em;
+    padding: 1em 1em 1em 1em;
     background-color: ${({ theme }) => theme.app.colors.post_bg};
 `
 
@@ -58,7 +56,7 @@ export default function Category({category}) {
     const [menuStatus, setMenuStatus] = useState(false)
 
     const handleCategory = (e: object) => {
-        console.log(e.target)
+        /* console.log(e.target) */
     }
 
     useEffect(() => {},[menuStatus])
