@@ -47,7 +47,7 @@ const StyledVotes = styled(Votes)`
         line-height: 16px;
         pointer-events: none;
         word-break: normal;
-        color: ${({ theme }) => theme.app.colors.color};
+        color: ${({ theme }) => theme.app.colors.lightgray};
     }
     @media only screen and (min-width: ${sizes.sm}){
         display: flex;

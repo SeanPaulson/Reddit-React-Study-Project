@@ -1,0 +1,47 @@
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { Collapse, List, ListItemButton, ListItemText, Switch } from "@mui/material";
+import React from "react";
+import styled from "styled-components";
+
+const UL = styled(List)`
+  color: ${({ theme }) => theme.app.colors.color};
+  font-size: 14px;
+  & .subList {
+    padding: 0;
+    height: fit-content;
+    display: flex;
+
+  }
+
+  & .login {
+    border-top: 1px solid ${({ theme }) => theme.app.colors.gray}
+  }
+`;
+
+const MenuItems = ({ handleChange }) => {
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <UL>
+      <ListItemButton disableRipple={true} onClick={handleClick}>
+        <ListItemText primary="Settings" />
+        {open ? <ExpandMore /> : <ExpandLess />}
+      </ListItemButton>
+      <Collapse component="div" in={open} unmountOnExit>
+        <List className="subList">
+          <ListItemButton disableRipple={true}>
+            <ListItemText primary="Dark Mode"/>
+            <Switch onChange={e => handleChange(e.target.checked)} />
+          </ListItemButton>
+        </List>
+      </Collapse>
+      <ListItemText className="login" primary="Login --TODO" />
+    </UL>
+  );
+};
+
+export default MenuItems;

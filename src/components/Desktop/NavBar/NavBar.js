@@ -8,6 +8,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Header = styled.header`
   background-color: ${({ theme }) => theme.app.colors.header};
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 `;
 const Button = styled.button`
   background-color: inherit;
@@ -28,6 +31,7 @@ const HoverButton = styled(Button)`
   &:hover {
     border-radius: 5px;
     border-color: lightgray;
+    cursor: pointer;
   }
 `;
 
@@ -58,8 +62,8 @@ const StyledSearchBar = styled(SearchBar)`
 const SignupChip = styled(Chip)`
     && {
       color: ${({ theme }) => theme.app.colors.body};
-      font-size: 12px; 
-      font-weight: 600;
+      font-size: 16px; 
+      font-weight: 500;
       height: 30px;
       background-color: ${({ theme }) => theme.app.colors.btn_blue};
     }
@@ -70,12 +74,12 @@ const SignupChip = styled(Chip)`
 `
 const LoginChip = styled(Chip)`
     && {
-      color: #0079d3;
-      font-size: 12px; 
-      font-weight: 600;
+      color: ${({ theme }) => theme.app.colors.btn_blue};
+      font-size: 16px; 
+      font-weight: 500;
       height: 30px;
-      background-color: white;
-      border: 1px solid #0079d3;
+      background-color: ${({ theme }) => theme.app.colors.post_bg};
+      border: 1px solid ${({ theme }) => theme.app.colors.btn_blue};
     }
     &:hover {
         background-color: #cce4f6;
@@ -83,7 +87,7 @@ const LoginChip = styled(Chip)`
     }
 `
 
-const NavBar = (props) => {
+const NavBar = ({ handleEvent }) => {
   const mobileViewMatch = useMediaQuery('(min-width: 615px)');
   return (
     <Header>
@@ -95,7 +99,7 @@ const NavBar = (props) => {
           <StyledSearchBar />
           {mobileViewMatch && <LoginChip label="Log In" />}
           {mobileViewMatch && <SignupChip label="Sign Up" />}
-          <HoverButton>
+          <HoverButton onClick={handleEvent}>
             <PersonOutlineOutlinedIcon sx={{ color: "gray", width: "2rem" }} />
             <ExpandMoreOutlinedIcon sx={{ color: "gray" }} />
           </HoverButton>
