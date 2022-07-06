@@ -7,6 +7,7 @@ const SubRedditTitle = styled.h5`
     font-weight: 500;
     margin: 0px;
     padding: 0;
+    color: ${({ theme }) => theme.app.colors.author_color};
 `
 
 const Time = styled.h5`

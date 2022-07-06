@@ -8,7 +8,7 @@ const Container = styled.div`
   flex-direction: column;
   max-width: 100%;
   background-color: ${({ theme }) => theme.app.colors.post_bg};
-  margin-top: .4rem;
+  margin-top: .2rem;
   padding: .4rem .7rem;
 `;
 // const ShowMore = styled.div``

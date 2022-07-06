@@ -7,14 +7,14 @@ import { StyledMenu } from "./Menu/Menu";
 import MobileMenuListItems from "./Menu/MobileMenuListItems";
 import Category from "./Category/Category";
 import { StyledContainer } from "./styles/StyledContainer";
-import { boolean } from "joi";
+// import { boolean } from "joi";
 
 
 
 
 function Mobile() {
 
-  const [menuIsOpen, setMenuIsopen] = useState<boolean>(false);
+  const [menuIsOpen, setMenuIsopen] = useState(false);
 
   function toggleMenu() {
     setMenuIsopen(!menuIsOpen);
