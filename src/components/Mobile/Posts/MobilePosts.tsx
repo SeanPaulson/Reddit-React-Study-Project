@@ -3,6 +3,16 @@ import PostHeader from './PostHeader';
 import PostBody from "./PostBody";
 import PostFooter from "./PostFooter";
 
+const Posts : React.FC = () => {
+  return (
+    <Container>
+      <PostHeader />
+      <PostBody />
+      <PostFooter />
+    </Container>
+  );
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,15 +22,5 @@ const Container = styled.div`
   padding: .4rem .7rem;
 `;
 // const ShowMore = styled.div``
-
-function Posts() {
-  return (
-    <Container>
-      <PostHeader />
-      <PostBody />
-      <PostFooter />
-    </Container>
-  );
-}
 
 export default Posts;

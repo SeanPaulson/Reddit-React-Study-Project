@@ -3,22 +3,9 @@ import { Collapse, List, ListItemButton, ListItemText, Switch } from "@mui/mater
 import React from "react";
 import styled from "styled-components";
 
-const UL = styled(List)`
-  color: ${({ theme }) => theme.app.colors.color};
-  font-size: 14px;
-  & .subList {
-    padding: 0;
-    height: fit-content;
-    display: flex;
+import { MenuItemsProps } from "./Menu.model";
 
-  }
-
-  & .login {
-    border-top: 1px solid ${({ theme }) => theme.app.colors.gray}
-  }
-`;
-
-const MenuItems = ({ handleChange }) => {
+const MenuItems : React.FC<MenuItemsProps> = ({ handleChange }) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -43,5 +30,20 @@ const MenuItems = ({ handleChange }) => {
     </UL>
   );
 };
+
+const UL = styled(List)`
+  color: ${({ theme }) => theme.app.colors.color};
+  font-size: 14px;
+  & .subList {
+    padding: 0;
+    height: fit-content;
+    display: flex;
+
+  }
+
+  & .login {
+    border-top: 1px solid ${({ theme }) => theme.app.colors.gray}
+  }
+`;
 
 export default MenuItems;

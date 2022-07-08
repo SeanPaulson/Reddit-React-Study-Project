@@ -1,4 +1,4 @@
-export const lightTheme = {
+export const lightTheme : ThemeType = {
     app: {
       colors: {
         body: '#dae0e6',
@@ -14,7 +14,7 @@ export const lightTheme = {
     }
   }
 
-  export const darkTheme = {
+export const darkTheme : ThemeType = {
     app: {
       colors: {
         body: '#353535',
@@ -26,6 +26,22 @@ export const lightTheme = {
         gray: '#353535',
         lightgray: '#908f8f',
         post_bg: '#000000'
-      }
     }
   }
+}
+
+export type ThemeType = {
+  app: {
+    colors: {
+      body: string,
+      header: string,
+      color: string,
+      btn_blue: string,
+      author_color: string,
+      black: string,
+      gray: string,
+      lightgray: string,
+      post_bg: string,
+    }
+  }
+}

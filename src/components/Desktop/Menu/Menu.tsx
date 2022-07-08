@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { MenuProps } from "./Menu.model";
 
-export const Menu = styled.div`
-${({ isMenuOpen }) => isMenuOpen ? 'display: block' : 'display: none'};
+export const Menu = styled.div<MenuProps>`
+  ${({ isMenuOpen }) => isMenuOpen ? 'display: block' : 'display: none'};
   position: fixed;
   top: 50px;
   right: 20px;  

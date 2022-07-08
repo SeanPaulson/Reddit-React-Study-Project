@@ -1,7 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { DesktopThemeType } from '../themes'
 
-const Container = styled.div`
+import { PostBodyProps } from './DesktopPosts.model'
+
+export const PostBody : React.FC<PostBodyProps> = ({Title,Thumbnail, Image}) => {
+  return (
+    <Container>
+        <ContentTitle>{Title}</ContentTitle>
+        {Thumbnail === "self" ? <></> : <ContentImage src={Image} />}
+    </Container>
+  )
+}
+
+const Container = styled.div<{theme: DesktopThemeType}>`
     display: flex;
     flex-direction: column;
     flex: 2;
@@ -24,12 +36,3 @@ const ContentImage = styled.img`
     max-width: 100%;
     object-fit: cover;
 `
-
-export const PostBody = ({Title,Thumbnail, Image}) => {
-  return (
-    <Container>
-        <ContentTitle>{Title}</ContentTitle>
-        {Thumbnail === "self" ? <></> : <ContentImage src={Image} />}
-    </Container>
-  )
-}

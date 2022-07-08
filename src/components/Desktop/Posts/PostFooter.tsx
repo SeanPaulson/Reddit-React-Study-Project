@@ -1,9 +1,28 @@
 import React from 'react'
-import { Comments } from '../../Posts/Comments';
-import { Votes } from '../../Posts/Votes';
 import { Share } from '@mui/icons-material';
 import styled from 'styled-components';
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
+import { Comments } from '../../PostUtils/Comments';
+import { Votes } from '../../PostUtils/Votes';
+import { PostFooterProps } from './DesktopPosts.model';
+
+export const PostFooter : React.FC<PostFooterProps> = ({votes,comments}) => {
+
+    return (
+        <Footer>
+            <StyledVotes count={votes} />
+            <CommentsWrap>
+                <Comments count={comments} />
+                <p>Comments</p>
+            </CommentsWrap>
+            <Info>
+                <Share sx={{fontSize: 19, color: "grey"}} />
+                <Count>Share</Count>
+            </Info>
+        </Footer>
+    )
+}
 
 const Count = styled.p`
     color: grey;
@@ -64,20 +83,3 @@ const Footer = styled.div`
     gap: 0.9em;
     align-items: center;
 `
-
-export const PostFooter = ({votes,comments}) => {
-
-    return (
-        <Footer>
-            <StyledVotes voteCount={votes} />
-            <CommentsWrap>
-                <Comments commentsCount={comments} />
-                <p>Comments</p>
-            </CommentsWrap>
-            <Info>
-                <Share sx={{fontSize: 19}} color="grey" />
-                <Count>Share</Count>
-            </Info>
-        </Footer>
-    )
-}

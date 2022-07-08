@@ -1,5 +1,19 @@
-import SearchImgSvg from '../../images/SearchImgSvg';
 import styled from "@emotion/styled";
+
+import SearchImgSvg from '../../images/SearchImgSvg';
+import { SearchBarProps } from './SearchBar.model';
+
+export const SearchBar : React.FC<SearchBarProps> = ({className}) => {
+  
+  return (
+      <SearchDiv className={className} >
+        <StyledLabel >
+          <SearchImgSvg className={className}/>
+          <StyledInput placeholder="Search reddit"/>
+        </StyledLabel>
+      </SearchDiv>
+  )
+}
 
 const SearchDiv = styled.div`
     display: block;
@@ -31,20 +45,3 @@ const StyledLabel = styled.label`
     height: 32px;
     padding: 0 12px;
 `
-
-export const SearchBar = ({className}) => {
-  
-  return (
-      <SearchDiv className={className} >
-        <StyledLabel >
-          <SearchImgSvg className={className}/>
-          <StyledInput placeholder="Search reddit"/>
-        </StyledLabel>
-      </SearchDiv>
-  )
-}
-
-  SearchBar.label = StyledLabel;
-  SearchBar.input = StyledInput;
-  SearchBar.wrapper = SearchDiv;
-

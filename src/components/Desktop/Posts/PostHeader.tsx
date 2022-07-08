@@ -1,17 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Author } from '../../Posts/Author'
-import { Awards } from '../../Posts/Awards'
+import { Author } from '../../PostUtils/Author'
+import { Awards } from '../../PostUtils/Awards'
 import Chip from "@mui/material/Chip";
+import { PostHeaderProps } from './DesktopPosts.model';
 
-const Container = styled.div`
-    display: flex;
-    justify-content: space-around;
-    height: 5vh;
-    align-items: center;
-    width: 100%;
-    flex: 1;
-`
+
+export const PostHeader : React.FC<PostHeaderProps> = ({Subreddit, awardsCount}) => {
+    return (
+        <Container>
+            <DesktopAuthor Subreddit={Subreddit} />
+            <DesktopAwards count={awardsCount}  />
+            <StyledChip label="Join" />
+        </Container>
+    )
+}
 
 const DesktopAuthor = styled(Author)`
     .Subreddit:hover {
@@ -40,13 +43,11 @@ const DesktopAwards = styled(Awards)`
     border: none;
 `
 
-
-export const PostHeader = ({Subreddit, awardsCount}) => {
-    return (
-        <Container>
-            <DesktopAuthor Subreddit={Subreddit} />
-            <DesktopAwards awardsCount={awardsCount}  />
-            <StyledChip label="Join" />
-        </Container>
-    )
-}
+const Container = styled.div`
+    display: flex;
+    justify-content: space-around;
+    height: 5vh;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+`
