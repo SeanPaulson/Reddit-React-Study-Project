@@ -1,20 +1,17 @@
 import { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
+
 import NavBar from "./NavBar/NavBar";
-import { lightTheme, darkTheme } from "./themes";
+import { lightTheme, darkTheme, DesktopThemeType } from "./themes";
 import { Posts } from "./Posts/Posts";
 import { Menu } from "./Menu/Menu";
-import MenuItems from "./MenuItems/MenuItems";
-const Container = styled.div`
-  top: 0px;
-  background-color: ${({ theme }) => theme.app.colors.body};
-`;
+import MenuItems from "./Menu/MenuItems";
 
-function Desktop() {
+const Desktop = () => {
   const [menuIsOpen, setMenuIsopen] = useState(false);
 
   const toggleMenu = () => {
-    setMenuIsopen((prev) => setMenuIsopen(!prev));
+    setMenuIsopen((prev) => prev ? false : true);
   };
 
 
@@ -42,5 +39,10 @@ function Desktop() {
     </ThemeProvider>
   );
 }
+
+const Container = styled.div<{theme: DesktopThemeType}>`
+  top: 0px;
+  background-color: ${({ theme }) => theme.app.colors.body};
+`;
 
 export default Desktop;

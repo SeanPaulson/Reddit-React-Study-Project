@@ -1,14 +1,22 @@
 import styled from "styled-components";
-import { Comments } from "../../Posts/Comments";
-import ShareSVG from "../../../images/ShareSVG";
-import { Votes } from "../../Posts/Votes";
-import { Awards } from "../../Posts/Awards";
 
-const Footer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
+import { Comments } from "../../PostUtils/Comments";
+import ShareSVG from "../../../images/ShareSVG";
+import { Votes } from "../../PostUtils/Votes";
+import { Awards } from "../../PostUtils/Awards";
+
+const PostFooter : React.FC = () => {
+  return (
+    <Footer>
+      <MobileVotes count={7} />
+      <Awards count={3} />
+      <MobileComments count={8} />
+      <ShareButton>
+        <ShareSVG color="grey" />
+      </ShareButton>
+    </Footer>
+  );
+};
 
 const ShareButton = styled.button`
   border: 1px solid ${({ theme }) => theme.app.colors.gray};
@@ -29,17 +37,10 @@ font-weight: 500;
 font-size: 14px;
 `
 
-const PostFooter = (props) => {
-  return (
-    <Footer>
-      <MobileVotes voteCount={7} />
-      <Awards awardsCount={3} />
-      <MobileComments commentsCount={8} />
-      <ShareButton>
-        <ShareSVG color="grey" />
-      </ShareButton>
-    </Footer>
-  );
-};
+const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
 
 export default PostFooter;

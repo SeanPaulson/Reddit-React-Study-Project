@@ -1,17 +1,35 @@
 import styled from "styled-components";
-import Logo from "../../../images/Logo";
-import { SearchBar } from "../../SearchBar/SearchBar";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { Chip } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const Header = styled.header`
-  background-color: ${({ theme }) => theme.app.colors.header};
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-`;
+import { SearchBar } from "../../SearchBar/SearchBar";
+import Logo from "../../../images/Logo";
+import { NavBarProps } from "./NavBar.model";
+
+const NavBar : React.FC<NavBarProps> = ({ handleEvent }) => {
+  const mobileViewMatch = useMediaQuery('(min-width: 615px)');
+  return (
+    <Header>
+      <nav>
+        <UL>
+          <Button>
+            <Logo width="2rem" />
+          </Button>
+          <StyledSearchBar />
+          {mobileViewMatch && <LoginChip label="Log In" />}
+          {mobileViewMatch && <SignupChip label="Sign Up" />}
+          <HoverButton onClick={handleEvent}>
+            <PersonOutlineOutlinedIcon sx={{ color: "gray", width: "2rem" }} />
+            <ExpandMoreOutlinedIcon sx={{ color: "gray" }} />
+          </HoverButton>
+        </UL>
+      </nav>
+    </Header>
+  );
+};
+
 const Button = styled.button`
   background-color: inherit;
   border-style: none;
@@ -87,26 +105,11 @@ const LoginChip = styled(Chip)`
     }
 `
 
-const NavBar = ({ handleEvent }) => {
-  const mobileViewMatch = useMediaQuery('(min-width: 615px)');
-  return (
-    <Header>
-      <nav>
-        <UL>
-          <Button>
-            <Logo width="2rem" />
-          </Button>
-          <StyledSearchBar />
-          {mobileViewMatch && <LoginChip label="Log In" />}
-          {mobileViewMatch && <SignupChip label="Sign Up" />}
-          <HoverButton onClick={handleEvent}>
-            <PersonOutlineOutlinedIcon sx={{ color: "gray", width: "2rem" }} />
-            <ExpandMoreOutlinedIcon sx={{ color: "gray" }} />
-          </HoverButton>
-        </UL>
-      </nav>
-    </Header>
-  );
-};
+const Header = styled.header`
+  background-color: ${({ theme }) => theme.app.colors.header};
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+`;
 
 export default NavBar;

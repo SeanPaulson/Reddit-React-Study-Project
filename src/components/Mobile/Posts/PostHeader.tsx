@@ -1,19 +1,19 @@
 import styled from "styled-components";
-import { Author } from "../../Posts/Author";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Chip from "@mui/material/Chip";
+import React from "react";
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
+import { Author } from "../../PostUtils/Author";
 
-  & .${'moreHorizIon'} {
-    color: ${({ theme }) => theme.app.colors.lightgray};
-  }
-  
-`;
+const PostHeader : React.FC = () => {
+  return (
+    <Container>
+      <Author Subreddit="Author" />
+      <StyledChip label="Join" />
+      <MoreHorizIcon className="moreHorizIon" sx={{ fontSize: "15px" }} />
+    </Container>
+  );
+};
 
 const StyledChip = styled(Chip)`
   && {
@@ -29,14 +29,16 @@ const StyledChip = styled(Chip)`
   }
 `;
 
-const PostHeader = (props) => {
-  return (
-    <Container>
-      <Author Subreddit="Author" />
-      <StyledChip label="Join" />
-      <MoreHorizIcon className="moreHorizIon" sx={{ fontSize: "15px" }} />
-    </Container>
-  );
-};
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  & .${'moreHorizIon'} {
+    color: ${({ theme }) => theme.app.colors.lightgray};
+  }
+  
+`;
 
 export default PostHeader;

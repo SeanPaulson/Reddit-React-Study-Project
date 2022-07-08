@@ -1,6 +1,28 @@
 import styled from "styled-components";
 import RedditLogo from "../../../images/RedditLogo";
+
 import HamburgerMenuSVG from "../../../images/HamburgerMenu";
+
+export const Header = ({ toggleMenu }) => {
+  return (
+    <AppHeader>
+      <nav>
+        <ul>
+          <li>
+            <button>
+              <RedditLogo color="white"></RedditLogo>
+            </button>
+          </li>
+          <li className="li__hamburgerMenu">
+            <button onClick={() => toggleMenu()} >
+              <HamburgerMenuSVG />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </AppHeader>
+  );
+};
 
 const AppHeader = styled.header`
   background-color: ${({ theme }) => theme.app.colors.header};
@@ -27,24 +49,3 @@ const AppHeader = styled.header`
     border: none;
   }
 `;
-
-export const Header = ({ toggleMenu }) => {
-  return (
-    <AppHeader>
-      <nav>
-        <ul>
-          <li>
-            <button>
-              <RedditLogo color="white"></RedditLogo>
-            </button>
-          </li>
-          <li className="li__hamburgerMenu">
-            <button>
-              <HamburgerMenuSVG toggleMenu={toggleMenu} color="white" />
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </AppHeader>
-  );
-};

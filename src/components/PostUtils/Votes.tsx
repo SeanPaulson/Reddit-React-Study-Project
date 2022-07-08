@@ -1,13 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import UpVote from '../../images/UpVote';
 import DownVote from "../../images/DownVote"
 import {FormatNumbers} from "../../utils"
+import { VotesProps } from './PostUtils.mode';
+
+export const Votes : React.FC<VotesProps> = ({count, color,className}) => {
+
+    return (
+        <Wrapper className={className} >
+            <UpVotes className="UpVotes" color={color || 'gray'} />
+            <Count className="Count">{FormatNumbers(count)}</Count>
+            <DownVotes className="UpVotes" color="grey" />
+        </Wrapper>
+    )
+}
 
 const Count = styled.p`
     color: grey;
     font-weight: 500;
     font-size: 14px;
+`
+
+const UpVotes = styled(UpVote)`
+    padding: 0.3em;
+`
+
+const DownVotes = styled(DownVote)`
+    padding: 0.3em;
 `
 
 export const Wrapper = styled.div`
@@ -23,22 +44,3 @@ export const Wrapper = styled.div`
         margin-right: 0.3em;
     }
 `
-
-const UpVotes = styled(UpVote)`
-    padding: 0.3em;
-`
-
-const DownVotes = styled(DownVote)`
-    padding: 0.3em;
-`
-
-export const Votes = ({voteCount, color,className}) => {
-
-    return (
-        <Wrapper className={className} >
-            <UpVotes className="UpVotes" color={color || 'gray'} />
-            <Count className="Count">{FormatNumbers(voteCount)}</Count>
-            <DownVotes className="UpVotes" color="grey" />
-        </Wrapper>
-    )
-}

@@ -1,11 +1,14 @@
+import React from "react";
 import styled from "styled-components";
 
-const Content = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: .4rem 0;
-`;
+const PostBody : React.FC = () => {
+  return (
+    <Content>
+      <ContentTitle>Title</ContentTitle>
+      <ContentImage alt="picture" src="" />
+    </Content>
+  );
+};
 
 const ContentTitle = styled.p`
   margin: 0px;
@@ -21,13 +24,11 @@ const ContentImage = styled.img`
   text-align: center;
 `;
 
-const PostBody = (props) => {
-  return (
-    <Content>
-      <ContentTitle>Title</ContentTitle>
-      <ContentImage alt="picture" src="" />
-    </Content>
-  );
-};
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .4rem 0;
+`;
 
 export default PostBody;

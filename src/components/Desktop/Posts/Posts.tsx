@@ -3,10 +3,47 @@ import styled from 'styled-components'
 import axios from 'axios';
 import { PostHeader } from './PostHeader';
 import { PostBody } from './PostBody';
-import { Votes } from '../../Posts/Votes';
+import { Votes } from '../../PostUtils/Votes';
 import { PostFooter } from './PostFooter';
 import { sizes } from '../MediaQueries';
 import { SideInfo } from '../SideInfo/SideInfo';
+
+export const Posts : React.FC = () => {
+
+    const [posts, setPosts] = useState([])
+
+    useEffect(()=> {
+        const getPosts = async() => {
+            try {
+                const res = await axios.get(`https://www.reddit.com/hot/.json?limit=10`)
+                setPosts(res.data.data.children)  
+                console.log(posts)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        
+        getPosts()
+    },[])
+
+    return (
+        <Container>
+            <PostsContainer>
+                {posts?.map((item,index) => (
+                    <PostWrap key={index}>
+                        <StyledVotes count={item.data.ups} />
+                        <Post>
+                        <PostHeader Subreddit={item.data.subreddit} awardsCount={item.data["all_awardings"].length} />
+                        <PostBody Title={item.data.title} Thumbnail={item.data.thumbnail} Image={item.data.url} />
+                        <PostFooter votes={item.data.ups} comments={item.data["num_comments"]} />
+                        </Post>
+                    </PostWrap>
+                ))}
+            </PostsContainer>
+            <SideInfo />
+        </Container>
+    )
+}
 
 const PostsContainer = styled.div`
     display: flex;
@@ -77,40 +114,3 @@ const Post = styled.div`
     min-height: 13vh;
     width: 97%;
 `
-
-export const Posts = () => {
-
-    const [posts, setPosts] = useState()
-
-    useEffect(()=> {
-        const getPosts = async() => {
-            try {
-                const res = await axios.get(`https://www.reddit.com/hot/.json?limit=10`)
-                setPosts(res.data.data.children)  
-                console.log(posts)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        
-        getPosts()
-    },[])
-
-    return (
-        <Container>
-            <PostsContainer>
-                {posts?.map((item,index) => (
-                    <PostWrap key={index}>
-                        <StyledVotes voteCount={item.data.ups} />
-                        <Post>
-                        <PostHeader Subreddit={item.data.subreddit} awardsCount={item.data["all_awardings"].length} />
-                        <PostBody Title={item.data.title} Thumbnail={item.data.thumbnail} Image={item.data.url} />
-                        <PostFooter votes={item.data.ups} comments={item.data["num_comments"]} />
-                        </Post>
-                    </PostWrap>
-                ))}
-            </PostsContainer>
-            <SideInfo />
-        </Container>
-    )
-}

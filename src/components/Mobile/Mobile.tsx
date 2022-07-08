@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
+
 import { lightTheme, darkTheme } from '../../themes';
 import { Header } from "./Header/Header";
 import MobilePosts from "./Posts/MobilePosts";
@@ -9,15 +10,12 @@ import Category from "./Category/Category";
 import { StyledContainer } from "./styles/StyledContainer";
 // import { boolean } from "joi";
 
-
-
-
-function Mobile() {
+const Mobile : React.FC = () => {
 
   const [menuIsOpen, setMenuIsopen] = useState(false);
 
   function toggleMenu() {
-    setMenuIsopen(!menuIsOpen);
+    setMenuIsopen(prev => prev ? false : true);
   }
 
   const [theme, setTheme] = useState('lightTheme');

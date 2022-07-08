@@ -1,6 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import CommentsIMG from "../../images/Comments"
+import { CommentsProps } from './PostUtils.mode'
+
+export const Comments : React.FC<CommentsProps> = ({count,className}) => {
+  return (
+    <Info className={className}>
+        <CommentsIMG color="grey" />
+        <Count>{count}</Count>
+    </Info>
+  )
+}
 
 const Count = styled.p`
     color: grey;
@@ -18,12 +29,3 @@ const Info = styled.div`
     color: grey;
     font-size: 15px;
 `
-
-export const Comments = ({commentsCount,className}) => {
-  return (
-    <Info className={className}>
-        <CommentsIMG color="grey" />
-        <Count>{commentsCount}</Count>
-    </Info>
-  )
-}
