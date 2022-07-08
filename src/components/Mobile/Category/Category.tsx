@@ -1,5 +1,7 @@
+import { EventHandlers } from "@mui/base";
 import { KeyboardArrowDown, LocalFireDepartment } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
+import { MouseEventHandler } from "react";
 import styled from "styled-components";
 
 import { ThemeType } from "../../../themes";
@@ -8,8 +10,7 @@ import { CategoryProps } from "./Category.model";
 const Category : React.FC<CategoryProps> = ({ category }) => {
   const [menuStatus, setMenuStatus] = useState(false);
 
-  const handleCategory = (e: object) => {
-    /* console.log(e.target) */
+  const handleCategory = (e: React.MouseEvent<HTMLButtonElement>):void => {
   };
 
   useEffect(() => {}, [menuStatus]);
@@ -28,9 +29,7 @@ const Category : React.FC<CategoryProps> = ({ category }) => {
         </StyledButton>
         <Topics open={menuStatus ? "flex" : "none"}>
           <TopicItems
-            onClick={(e) => {
-              handleCategory(e);
-            }}
+            onClick={handleCategory}
           >
             Hot
           </TopicItems>

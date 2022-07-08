@@ -17,7 +17,7 @@ const Desktop = () => {
 
   const [theme, setTheme] = useState("lightTheme");
 
-  const toggleTheme = (isChecked) => {
+  const toggleTheme = (isChecked: boolean) => {
     isChecked ? setTheme("darkTheme") : setTheme("lightTheme");
   };
 
