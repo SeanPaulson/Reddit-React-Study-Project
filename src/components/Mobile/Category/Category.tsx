@@ -1,10 +1,7 @@
-import { EventHandlers } from "@mui/base";
 import { KeyboardArrowDown, LocalFireDepartment } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
-
-import { ThemeType } from "../../../themes";
+import { ThemeType } from "styled-components";
 import { CategoryProps } from "./Category.model";
 
 const Category : React.FC<CategoryProps> = ({ category }) => {

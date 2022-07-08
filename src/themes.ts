@@ -1,3 +1,5 @@
+import { ThemeType } from "styled-components"
+
 export const lightTheme : ThemeType = {
     app: {
       colors: {
@@ -26,22 +28,6 @@ export const darkTheme : ThemeType = {
         gray: '#353535',
         lightgray: '#908f8f',
         post_bg: '#000000'
-    }
-  }
-}
-
-export type ThemeType = {
-  app: {
-    colors: {
-      body: string,
-      header: string,
-      color: string,
-      btn_blue: string,
-      author_color: string,
-      black: string,
-      gray: string,
-      lightgray: string,
-      post_bg: string,
     }
   }
 }

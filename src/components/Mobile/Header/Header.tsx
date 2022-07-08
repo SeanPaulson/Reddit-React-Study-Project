@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import RedditLogo from "../../../images/RedditLogo";
-
+import { ThemeType } from "styled-components";
 import HamburgerMenuSVG from "../../../images/HamburgerMenu";
 
 export const Header = ({ toggleMenu }) => {
@@ -24,7 +24,7 @@ export const Header = ({ toggleMenu }) => {
   );
 };
 
-const AppHeader = styled.header`
+const AppHeader = styled.header<{theme: ThemeType}>`
   background-color: ${({ theme }) => theme.app.colors.header};
   color: ${({ theme }) => theme.app.colors.white};
   width: 100%;
