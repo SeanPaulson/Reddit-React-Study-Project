@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
+import { PersonOutlineOutlined, ExpandMoreOutlined } from "@mui/icons-material";
 import { Chip } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -8,7 +7,10 @@ import { SearchBar } from "../../SearchBar/SearchBar";
 import Logo from "../../../images/Logo";
 import { NavBarProps } from "./NavBar.model";
 
-const NavBar : React.FC<NavBarProps> = ({ handleEvent }) => {
+const NavBar : React.FC<NavBarProps> = ({ handleEvent, toggleModal }) => {
+
+
+
   const mobileViewMatch = useMediaQuery('(min-width: 615px)');
   return (
     <Header>
@@ -18,11 +20,11 @@ const NavBar : React.FC<NavBarProps> = ({ handleEvent }) => {
             <Logo width="2rem" />
           </Button>
           <StyledSearchBar />
-          {mobileViewMatch && <LoginChip label="Log In" />}
-          {mobileViewMatch && <SignupChip label="Sign Up" />}
+          {mobileViewMatch && <LoginChip label="Log In" onClick={toggleModal}/>}
+          {mobileViewMatch && <SignupChip label="Sign Up" onClick={toggleModal}/>}
           <HoverButton onClick={handleEvent}>
-            <PersonOutlineOutlinedIcon sx={{ color: "gray", width: "2rem" }} />
-            <ExpandMoreOutlinedIcon sx={{ color: "gray" }} />
+            <PersonOutlineOutlined sx={{ color: "gray", width: "2rem" }} />
+            <ExpandMoreOutlined sx={{ color: "gray" }} />
           </HoverButton>
         </UL>
       </nav>

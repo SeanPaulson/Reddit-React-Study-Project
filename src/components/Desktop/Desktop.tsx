@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
-
 import NavBar from "./NavBar/NavBar";
+import LoginModal from '../LoginModal/LoginModal';
 import { lightTheme, darkTheme, DesktopThemeType } from "./themes";
 import { Posts } from "./Posts/Posts";
 import { Menu } from "./Menu/Menu";
@@ -14,6 +14,11 @@ const Desktop = () => {
     setMenuIsopen((prev) => prev ? false : true);
   };
 
+  const [isPopup, setIspopup] = useState(false);
+
+  const showLoginModal = () => {
+    setIspopup((prev) => prev ? false : true);
+  };
 
   const [theme, setTheme] = useState("lightTheme");
 
@@ -24,7 +29,8 @@ const Desktop = () => {
   return (
     <ThemeProvider theme={theme === "lightTheme" ? lightTheme : darkTheme}>
       <Container>
-        <NavBar handleEvent={toggleMenu} />
+        <LoginModal showLoginModal={showLoginModal} isPopup={isPopup} />
+        <NavBar handleEvent={toggleMenu} toggleModal={showLoginModal}/>
         <Menu
           currTheme={theme === "lightTheme" ? lightTheme : darkTheme}
           isMenuOpen={menuIsOpen}
