@@ -73,7 +73,7 @@ const PostsContainer = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 1em;
+  padding-top: 2em;
 `
 
 const DesktopVotes = styled(Votes)`
@@ -117,6 +117,9 @@ const PostWrap = styled.div`
     width: 100%;
     border-radius: 5px;
   }
+  @media only screen and (max-width: ${sizes.sm}) {
+    width: 90%;
+  }
 `
 
 const Post = styled.div`
@@ -125,4 +128,5 @@ const Post = styled.div`
   flex-direction: column;
   min-height: 13vh;
   width: 97%;
+  padding: 0.2em;
 `

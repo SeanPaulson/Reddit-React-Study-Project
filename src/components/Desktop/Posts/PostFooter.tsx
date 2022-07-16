@@ -66,7 +66,7 @@ const StyledVotes = styled(Votes)`
 const Info = styled.div`
   display: flex;
   align-items: center;
-  padding: 7px;
+  padding-left: 7px;
   border-radius: 5px;
   color: grey;
   margin-right: auto;
@@ -87,7 +87,7 @@ const Footer = styled.div`
   font-size: 13px;
 
   svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 `
