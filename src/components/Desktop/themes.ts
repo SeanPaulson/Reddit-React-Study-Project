@@ -1,4 +1,4 @@
-export const lightTheme : DesktopThemeType = {
+export const lightTheme: DesktopThemeType = {
   app: {
     colors: {
       body: '#DAE0E6',
@@ -9,12 +9,12 @@ export const lightTheme : DesktopThemeType = {
       default: '#000000',
       gray: '#EDEFF1',
       lightgray: '#F6F7F8',
-      post_bg: 'white'
-    }
-  }
+      post_bg: 'white',
+    },
+  },
 }
 
-export const darkTheme : DesktopThemeType = {
+export const darkTheme: DesktopThemeType = {
   app: {
     colors: {
       body: '#030303',
@@ -25,23 +25,23 @@ export const darkTheme : DesktopThemeType = {
       default: '#FFFFFF',
       gray: '#353535',
       lightgray: '#272729',
-      post_bg: '#1A1A1B'
-    }
-  }
+      post_bg: '#1A1A1B',
+    },
+  },
 }
 
 export type DesktopThemeType = {
   app: {
     colors: {
-      body: string,
-      header: string,
-      color: string,
-      btn_blue: string,
-      author_color: string,
-      default: string,
-      gray: string,
-      lightgray: string,
-      post_bg: string,
+      body: string
+      header: string
+      color: string
+      btn_blue: string
+      author_color: string
+      default: string
+      gray: string
+      lightgray: string
+      post_bg: string
     }
   }
 }

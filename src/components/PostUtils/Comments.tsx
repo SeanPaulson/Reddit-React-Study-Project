@@ -16,9 +16,10 @@ export const Comments : React.FC<CommentsProps> = ({count,className}) => {
 const Count = styled.p`
     color: grey;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 1em;
     margin-left: 0.3em;
     margin-right: 0.3em;
+    margin: 0px;
 `
 
 const Info = styled.div`
@@ -27,5 +28,5 @@ const Info = styled.div`
     height: 4vh;
     border-radius: 15px;
     color: grey;
-    font-size: 15px;
+    gap: 5px;
 `

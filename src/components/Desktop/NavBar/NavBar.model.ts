@@ -1,3 +1,3 @@
 export interface NavBarProps {
-    handleEvent: () => void;
+  handleEvent: () => void
 }

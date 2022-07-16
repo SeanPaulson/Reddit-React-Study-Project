@@ -1,16 +1,22 @@
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { Collapse, List, ListItemButton, ListItemText, Switch } from "@mui/material";
-import React from "react";
-import styled from "styled-components";
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import {
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemText,
+  Switch,
+} from '@mui/material'
+import React from 'react'
+import styled from 'styled-components'
 
-import { MenuItemsProps } from "./Menu.model";
+import { MenuItemsProps } from './Menu.model'
 
-const MenuItems : React.FC<MenuItemsProps> = ({ handleChange }) => {
-  const [open, setOpen] = React.useState(true);
+const MenuItems: React.FC<MenuItemsProps> = ({ handleChange }) => {
+  const [open, setOpen] = React.useState(true)
 
   const handleClick = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
   return (
     <UL>
@@ -21,15 +27,15 @@ const MenuItems : React.FC<MenuItemsProps> = ({ handleChange }) => {
       <Collapse component="div" in={open} unmountOnExit>
         <List className="subList">
           <ListItemButton disableRipple={true}>
-            <ListItemText primary="Dark Mode"/>
-            <Switch onChange={e => handleChange(e.target.checked)} />
+            <ListItemText primary="Dark Mode" />
+            <Switch onChange={(e) => handleChange(e.target.checked)} />
           </ListItemButton>
         </List>
       </Collapse>
       <ListItemText className="login" primary="Login --TODO" />
     </UL>
-  );
-};
+  )
+}
 
 const UL = styled(List)`
   color: ${({ theme }) => theme.app.colors.color};
@@ -38,12 +44,11 @@ const UL = styled(List)`
     padding: 0;
     height: fit-content;
     display: flex;
-
   }
 
   & .login {
-    border-top: 1px solid ${({ theme }) => theme.app.colors.gray}
+    border-top: 1px solid ${({ theme }) => theme.app.colors.gray};
   }
-`;
+`
 
-export default MenuItems;
+export default MenuItems
