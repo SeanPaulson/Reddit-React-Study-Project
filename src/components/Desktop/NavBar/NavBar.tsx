@@ -3,12 +3,15 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined'
 import { Chip } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
-
+import { useSession } from 'next-auth/react'
 import { SearchBar } from '../../SearchBar/SearchBar'
 import Logo from '../../../images/Logo'
 import { NavBarProps } from './NavBar.model'
+import { useEffect, useState } from 'react'
 
 const NavBar: React.FC<NavBarProps> = ({ handleEvent, toggleModal }) => {
+  const { data: session, status } = useSession()
+
   const mobileViewMatch = useMediaQuery('(min-width: 615px)')
   return (
     <Header>
@@ -18,8 +21,14 @@ const NavBar: React.FC<NavBarProps> = ({ handleEvent, toggleModal }) => {
             <Logo width="2rem" />
           </Button>
           <StyledSearchBar />
-          {mobileViewMatch && <LoginChip label="Log In" onClick={toggleModal}/>}
-          {mobileViewMatch && <SignupChip label="Sign Up" onClick={toggleModal}/>}
+          {mobileViewMatch && !session?.user ? (
+            <>
+              <LoginChip label="Log In" onClick={toggleModal} />
+              <SignupChip label="Sign Up" onClick={toggleModal} />
+            </>
+          ) : (
+            <p>{session?.user?.name}</p>
+          )}
           <HoverButton onClick={handleEvent}>
             <PersonOutlineOutlinedIcon sx={{ color: 'gray', width: '2rem' }} />
             <ExpandMoreOutlinedIcon sx={{ color: 'gray' }} />

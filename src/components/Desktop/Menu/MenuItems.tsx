@@ -1,4 +1,5 @@
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import { signOut, useSession } from 'next-auth/react'
 import {
   Collapse,
   List,
@@ -12,6 +13,7 @@ import styled from 'styled-components'
 import { MenuItemsProps } from './Menu.model'
 
 const MenuItems: React.FC<MenuItemsProps> = ({ handleChange }) => {
+  const { data: session, status } = useSession()
   const [open, setOpen] = React.useState(true)
 
   const handleClick = () => {
@@ -32,7 +34,11 @@ const MenuItems: React.FC<MenuItemsProps> = ({ handleChange }) => {
           </ListItemButton>
         </List>
       </Collapse>
-      <ListItemText className="login" primary="Login --TODO" />
+      {session ? (
+        <ListItemButton onClick={() => signOut()}>logout</ListItemButton>
+      ) : (
+        <p>login</p>
+      )}
     </UL>
   )
 }
