@@ -4,6 +4,7 @@ import { LoginModalProps } from "./LoginModal.model";
 import styled from "styled-components";
 import Image from "next/image";
 import loginBanner from "../../images/loginBanner.png";
+import { FormEvent } from "react";
 
 const Main = styled.main`
   display: flex;
@@ -37,8 +38,19 @@ const StyledBtn = styled.button`
 
 // #0079d3
 const LoginModal: React.FC<LoginModalProps> = ({ isPopup, showLoginModal }) => {
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const target = e.target as HTMLFormElement;
+    target.preventDefault();
+  }
+
+
   return (
-    <Dialog open={isPopup} disableEscapeKeyDown={true} fullWidth={true}>
+    <Dialog open={isPopup} disableEscapeKeyDown={true} sx={{
+        '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
+          maxWidth: 'fit-content'
+        }
+    }} >
       <Main>
         <Image src={loginBanner} height="650" width="130" />
         <ContentFlexWrap>
@@ -59,8 +71,15 @@ const LoginModal: React.FC<LoginModalProps> = ({ isPopup, showLoginModal }) => {
               .
             </p>
           </div>
-          <form>
-            <p>form</p>
+          <form style={{width: 280, backgroundColor: 'lightgray'}} onSubmit={handleSubmit}>
+            <div>
+              <div>
+              <button>Google Log in</button>
+              </div>
+              <div>
+              <button>Apple Log in</button>
+              </div>
+            </div>
           </form>
         </ContentFlexWrap>
       </Main>

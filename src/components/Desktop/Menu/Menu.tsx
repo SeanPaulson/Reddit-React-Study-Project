@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { MenuProps } from "./Menu.model";
+import styled from 'styled-components'
+import { MenuProps } from './Menu.model'
 
 export const Menu = styled.div<MenuProps>`
-  ${({ isMenuOpen }) => isMenuOpen ? 'display: block' : 'display: none'};
+  ${({ isMenuOpen }) => (isMenuOpen ? 'display: block' : 'display: none')};
   position: fixed;
   top: 50px;
-  right: 20px;  
+  right: 20px;
   color: ${({ theme }) => theme.app.colors.color};
   background-color: ${({ theme }) => theme.app.colors.post_bg};
   border: 1px solid ${({ theme }) => theme.app.colors.gray};
@@ -13,4 +13,4 @@ export const Menu = styled.div<MenuProps>`
   min-width: 250px;
   max-width: 250px;
   z-index: 100;
-`;
+`

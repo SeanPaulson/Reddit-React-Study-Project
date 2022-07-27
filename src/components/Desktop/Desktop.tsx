@@ -6,6 +6,7 @@ import { lightTheme, darkTheme, DesktopThemeType } from "./themes";
 import { Posts } from "./Posts/Posts";
 import { Menu } from "./Menu/Menu";
 import MenuItems from "./Menu/MenuItems";
+import { Layout } from './Layout/Layout'
 
 const Desktop = () => {
   const [menuIsOpen, setMenuIsopen] = useState(false);
@@ -27,7 +28,7 @@ const Desktop = () => {
   };
 
   return (
-    <ThemeProvider theme={theme === "lightTheme" ? lightTheme : darkTheme}>
+    <Layout>
       <Container>
         <LoginModal showLoginModal={showLoginModal} isPopup={isPopup} />
         <NavBar handleEvent={toggleMenu} toggleModal={showLoginModal}/>
@@ -42,13 +43,13 @@ const Desktop = () => {
         </Menu>
         <Posts />
       </Container>
-    </ThemeProvider>
-  );
+    </Layout>
+  )
 }
 
-const Container = styled.div<{theme: DesktopThemeType}>`
+const Container = styled.div<{ theme: DesktopThemeType }>`
   top: 0px;
   background-color: ${({ theme }) => theme.app.colors.body};
-`;
+`
 
 export default Desktop;
