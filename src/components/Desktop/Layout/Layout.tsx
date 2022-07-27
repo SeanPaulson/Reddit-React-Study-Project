@@ -4,8 +4,14 @@ import { Menu } from '../Menu/Menu'
 import { lightTheme, darkTheme, DesktopThemeType } from '../themes'
 import NavBar from '../NavBar/NavBar'
 import MenuItems from '../Menu/MenuItems'
+import LoginModal from '../../LoginModal/LoginModal'
 
 export const Layout = ({ children }) => {
+  const [isPopup, setIspopup] = useState(false);
+
+  const showLoginModal = () => {
+    setIspopup((prev) => prev ? false : true);
+  };
   const [menuIsOpen, setMenuIsopen] = useState(false)
 
   const toggleMenu = () => {
@@ -22,7 +28,8 @@ export const Layout = ({ children }) => {
     <ThemeProvider theme={theme === 'lightTheme' ? lightTheme : darkTheme}>
       <Container>
         <Wrap>
-          <NavBar handleEvent={toggleMenu} />
+        <LoginModal showLoginModal={showLoginModal} isPopup={isPopup} />
+        <NavBar handleEvent={toggleMenu} toggleModal={showLoginModal}/>
           <Menu
             currTheme={theme === 'lightTheme' ? lightTheme : darkTheme}
             isMenuOpen={menuIsOpen}
