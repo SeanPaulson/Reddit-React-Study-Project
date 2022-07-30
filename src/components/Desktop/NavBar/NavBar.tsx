@@ -7,7 +7,6 @@ import { useSession } from 'next-auth/react'
 import { SearchBar } from '../../SearchBar/SearchBar'
 import Logo from '../../../images/Logo'
 import { NavBarProps } from './NavBar.model'
-import { useEffect, useState } from 'react'
 
 const NavBar: React.FC<NavBarProps> = ({ handleEvent, toggleModal }) => {
   const { data: session, status } = useSession()
@@ -27,7 +26,7 @@ const NavBar: React.FC<NavBarProps> = ({ handleEvent, toggleModal }) => {
               <SignupChip label="Sign Up" onClick={toggleModal} />
             </>
           ) : (
-            <p>{session?.user?.name}</p>
+            <UserName>{session?.user?.name}</UserName>
           )}
           <HoverButton onClick={handleEvent}>
             <PersonOutlineOutlinedIcon sx={{ color: 'gray', width: '2rem' }} />
@@ -129,6 +128,10 @@ const Header = styled.header`
   max-width: 1920px;
   width: 100%;
   z-index: 100;
+`
+
+const UserName = styled.p`
+  color: ${({ theme }) => theme.app.colors.color};
 `
 
 export default NavBar

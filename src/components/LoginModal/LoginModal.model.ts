@@ -4,6 +4,11 @@ export interface LoginModalProps {
 }
 
 export type Inputs = {
-  name: string
+  userName: string
   password: string
+}
+
+export type IFormProps = {
+  readonly username?: string
+  readonly password?: string
 }
