@@ -83,6 +83,7 @@ const StyledSearchBar = styled(SearchBar)`
   max-width: 654px;
   && {
     margin-bottom: 0;
+    margin-right: auto;
   }
   &:hover {
     background-color: ${({ theme }) => theme.app.colors.lightgray};
