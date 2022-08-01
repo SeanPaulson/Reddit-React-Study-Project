@@ -11,4 +11,5 @@ export type Inputs = {
 export type IFormProps = {
   readonly username?: string
   readonly password?: string
+  readonly box1?: string
 }
